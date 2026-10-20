@@ -7,5 +7,5 @@
         $numero = readline();
         
     }
-    echo 'Introduciste numeros hasta 0, en 0 se acabo';
+    echo 'Introduciste numeros hasta 0, en 0 se acabo.';
 ?>
