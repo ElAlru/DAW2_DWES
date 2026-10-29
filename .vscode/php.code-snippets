@@ -1,0 +1,1021 @@
+{
+  // ══════════════════════════════════════════════
+  // ██  ESTRUCTURAS PHP                        ██
+  // ══════════════════════════════════════════════
+
+  "PHP tag": {
+    "prefix": "php",
+    "body": [
+      "<?php",
+      "$0",
+      "?>"
+    ],
+    "description": "Bloque <?php ?>"
+  },
+  "PHP inline echo": {
+    "prefix": "phpe",
+    "body": "<?= ${1:\\$variable} ?>$0",
+    "description": "<?= echo corto ?>"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  VARIABLES Y OUTPUT                     ██
+  // ══════════════════════════════════════════════
+
+  "echo": {
+    "prefix": "ec",
+    "body": "echo \"$1\";$0",
+    "description": "echo"
+  },
+  "echo HTML": {
+    "prefix": "echtml",
+    "body": "echo \"<${1:p}>$2</${1:p}>\";$0",
+    "description": "echo con etiqueta HTML"
+  },
+  "var_dump": {
+    "prefix": "vd",
+    "body": "var_dump(${1:\\$variable});$0",
+    "description": "var_dump para depuración"
+  },
+  "print_r": {
+    "prefix": "pr",
+    "body": "echo \"<pre>\"; print_r(${1:\\$variable}); echo \"</pre>\";$0",
+    "description": "print_r con formato"
+  },
+  "Variable": {
+    "prefix": "va",
+    "body": "\\$${1:variable} = ${2:valor};$0",
+    "description": "Declarar variable"
+  },
+  "Constante": {
+    "prefix": "const",
+    "body": "define('${1:NOMBRE}', ${2:'valor'});$0",
+    "description": "Definir constante con define"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  BUCLES                                  ██
+  // ══════════════════════════════════════════════
+
+  "foreach": {
+    "prefix": "fore",
+    "body": [
+      "foreach (${1:\\$array} as ${2:\\$elemento}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "foreach"
+  },
+  "foreach key value": {
+    "prefix": "forekv",
+    "body": [
+      "foreach (${1:\\$array} as ${2:\\$key} => ${3:\\$value}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "foreach con clave => valor"
+  },
+  "for loop": {
+    "prefix": "forr",
+    "body": [
+      "for (\\$i = 0; \\$i < ${1:count(\\$array)}; \\$i++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Bucle for"
+  },
+  "while": {
+    "prefix": "wh",
+    "body": [
+      "while (${1:condicion}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Bucle while"
+  },
+  "do while": {
+    "prefix": "dow",
+    "body": [
+      "do {",
+      "\t$0",
+      "} while (${1:condicion});"
+    ],
+    "description": "Bucle do...while"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FUNCIONES                               ██
+  // ══════════════════════════════════════════════
+
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:nombre}(${2:\\$params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Función PHP"
+  },
+  "function con return": {
+    "prefix": "fnr",
+    "body": [
+      "function ${1:nombre}(${2:\\$params}) {",
+      "\t$3",
+      "\treturn ${4:\\$resultado};",
+      "}"
+    ],
+    "description": "Función PHP con return"
+  },
+  "function con tipo": {
+    "prefix": "fnt",
+    "body": [
+      "function ${1:nombre}(${2:string \\$param}): ${3:string} {",
+      "\t$4",
+      "\treturn ${5:\\$resultado};",
+      "}"
+    ],
+    "description": "Función PHP con tipado"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CONDICIONALES                           ██
+  // ══════════════════════════════════════════════
+
+  "if": {
+    "prefix": "iff",
+    "body": [
+      "if (${1:condicion}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if"
+  },
+  "if else": {
+    "prefix": "ife",
+    "body": [
+      "if (${1:condicion}) {",
+      "\t$2",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if...else"
+  },
+  "if elseif else": {
+    "prefix": "ifelif",
+    "body": [
+      "if (${1:condicion1}) {",
+      "\t$2",
+      "} elseif (${3:condicion2}) {",
+      "\t$4",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if...elseif...else"
+  },
+  "switch": {
+    "prefix": "sw",
+    "body": [
+      "switch (${1:\\$variable}) {",
+      "\tcase ${2:valor1}:",
+      "\t\t$3",
+      "\t\tbreak;",
+      "\tcase ${4:valor2}:",
+      "\t\t$5",
+      "\t\tbreak;",
+      "\tdefault:",
+      "\t\t$0",
+      "\t\tbreak;",
+      "}"
+    ],
+    "description": "Switch case"
+  },
+  "Ternario": {
+    "prefix": "tern",
+    "body": "\\$${1:resultado} = (${2:condicion}) ? ${3:verdadero} : ${4:falso};$0",
+    "description": "Operador ternario"
+  },
+  "Null coalescing": {
+    "prefix": "nc",
+    "body": "\\$${1:resultado} = ${2:\\$variable} ?? ${3:'valor_defecto'};$0",
+    "description": "Operador null coalescing (??)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FORMULARIOS - GET/POST                  ██
+  // ══════════════════════════════════════════════
+
+  "isset GET": {
+    "prefix": "iget",
+    "body": [
+      "if (isset(\\$_GET['${1:param}'])) {",
+      "\t\\$${1:param} = \\$_GET['${1:param}'];",
+      "\t$0",
+      "}"
+    ],
+    "description": "Comprobar y recoger $_GET"
+  },
+  "isset POST": {
+    "prefix": "ipost",
+    "body": [
+      "if (isset(\\$_POST['${1:param}'])) {",
+      "\t\\$${1:param} = \\$_POST['${1:param}'];",
+      "\t$0",
+      "}"
+    ],
+    "description": "Comprobar y recoger $_POST"
+  },
+  "Recoger todo POST": {
+    "prefix": "postall",
+    "body": [
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t\\$${1:nombre} = isset(\\$_POST['${1:nombre}']) ? trim(\\$_POST['${1:nombre}']) : '';",
+      "\t\\$${2:email} = isset(\\$_POST['${2:email}']) ? trim(\\$_POST['${2:email}']) : '';",
+      "\t\\$${3:mensaje} = isset(\\$_POST['${3:mensaje}']) ? trim(\\$_POST['${3:mensaje}']) : '';",
+      "\t$0",
+      "}"
+    ],
+    "description": "Recoger múltiples campos POST con trim"
+  },
+  "Filter input": {
+    "prefix": "filterinput",
+    "body": "\\$${1:email} = filter_input(INPUT_${2|POST,GET|}, '${1:email}', ${3|FILTER_SANITIZE_EMAIL,FILTER_SANITIZE_SPECIAL_CHARS,FILTER_VALIDATE_EMAIL,FILTER_VALIDATE_INT,FILTER_VALIDATE_URL|});$0",
+    "description": "filter_input para sanitizar/validar"
+  },
+  "htmlspecialchars": {
+    "prefix": "hsc",
+    "body": "htmlspecialchars(${1:\\$variable}, ENT_QUOTES, 'UTF-8')$0",
+    "description": "htmlspecialchars para evitar XSS"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FORMULARIOS COMPLETOS EN PHP            ██
+  // ══════════════════════════════════════════════
+
+  "Formulario con procesamiento POST": {
+    "prefix": "formphppost",
+    "body": [
+      "<?php",
+      "\\$mensaje = '';",
+      "\\$errores = [];",
+      "",
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t// Recoger datos",
+      "\t\\$nombre = isset(\\$_POST['nombre']) ? trim(\\$_POST['nombre']) : '';",
+      "\t\\$email = isset(\\$_POST['email']) ? trim(\\$_POST['email']) : '';",
+      "",
+      "\t// Validar",
+      "\tif (empty(\\$nombre)) {",
+      "\t\t\\$errores[] = 'El nombre es obligatorio';",
+      "\t}",
+      "\tif (!filter_var(\\$email, FILTER_VALIDATE_EMAIL)) {",
+      "\t\t\\$errores[] = 'Email no válido';",
+      "\t}",
+      "",
+      "\tif (empty(\\$errores)) {",
+      "\t\t\\$mensaje = 'Formulario enviado correctamente';",
+      "\t\t$0",
+      "\t}",
+      "}",
+      "?>",
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<title>${1:Formulario}</title>",
+      "</head>",
+      "<body>",
+      "\t<?php if (!empty(\\$errores)): ?>",
+      "\t\t<div style=\"color: red;\">",
+      "\t\t\t<ul>",
+      "\t\t\t\t<?php foreach (\\$errores as \\$error): ?>",
+      "\t\t\t\t\t<li><?= htmlspecialchars(\\$error) ?></li>",
+      "\t\t\t\t<?php endforeach; ?>",
+      "\t\t\t</ul>",
+      "\t\t</div>",
+      "\t<?php endif; ?>",
+      "",
+      "\t<?php if (\\$mensaje): ?>",
+      "\t\t<p style=\"color: green;\"><?= htmlspecialchars(\\$mensaje) ?></p>",
+      "\t<?php endif; ?>",
+      "",
+      "\t<form method=\"POST\">",
+      "\t\t<label for=\"nombre\">Nombre:</label>",
+      "\t\t<input type=\"text\" id=\"nombre\" name=\"nombre\" value=\"<?= htmlspecialchars(\\$nombre ?? '') ?>\" required><br><br>",
+      "",
+      "\t\t<label for=\"email\">Email:</label>",
+      "\t\t<input type=\"email\" id=\"email\" name=\"email\" value=\"<?= htmlspecialchars(\\$email ?? '') ?>\" required><br><br>",
+      "",
+      "\t\t<input type=\"submit\" value=\"Enviar\">",
+      "\t</form>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Formulario PHP completo con validación POST y visualización de errores"
+  },
+  "Formulario con todos los inputs PHP": {
+    "prefix": "formphpfull",
+    "body": [
+      "<?php",
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t// Campos de texto",
+      "\t\\$nombre = trim(\\$_POST['nombre'] ?? '');",
+      "\t\\$email = trim(\\$_POST['email'] ?? '');",
+      "\t\\$password = \\$_POST['password'] ?? '';",
+      "\t\\$telefono = trim(\\$_POST['telefono'] ?? '');",
+      "\t\\$web = trim(\\$_POST['web'] ?? '');",
+      "",
+      "\t// Numéricos y fechas",
+      "\t\\$edad = intval(\\$_POST['edad'] ?? 0);",
+      "\t\\$fecha = \\$_POST['fecha'] ?? '';",
+      "\t\\$hora = \\$_POST['hora'] ?? '';",
+      "\t\\$color = \\$_POST['color'] ?? '#000000';",
+      "\t\\$rango = intval(\\$_POST['rango'] ?? 50);",
+      "",
+      "\t// Selección",
+      "\t\\$genero = \\$_POST['genero'] ?? '';",
+      "\t\\$pais = \\$_POST['pais'] ?? '';",
+      "\t\\$intereses = \\$_POST['intereses'] ?? [];",
+      "\t\\$terminos = isset(\\$_POST['terminos']);",
+      "",
+      "\t// Textarea",
+      "\t\\$comentario = trim(\\$_POST['comentario'] ?? '');",
+      "",
+      "\t// Mostrar resultados",
+      "\techo \"<h2>Datos recibidos:</h2>\";",
+      "\techo \"<p>Nombre: \" . htmlspecialchars(\\$nombre) . \"</p>\";",
+      "\techo \"<p>Email: \" . htmlspecialchars(\\$email) . \"</p>\";",
+      "\techo \"<p>Teléfono: \" . htmlspecialchars(\\$telefono) . \"</p>\";",
+      "\techo \"<p>Edad: \\$edad</p>\";",
+      "\techo \"<p>Fecha: \" . htmlspecialchars(\\$fecha) . \"</p>\";",
+      "\techo \"<p>Género: \" . htmlspecialchars(\\$genero) . \"</p>\";",
+      "\techo \"<p>País: \" . htmlspecialchars(\\$pais) . \"</p>\";",
+      "\techo \"<p>Intereses: \" . implode(', ', array_map('htmlspecialchars', \\$intereses)) . \"</p>\";",
+      "\techo \"<p>Color: \\$color</p>\";",
+      "\techo \"<p>Rango: \\$rango</p>\";",
+      "\techo \"<p>Términos aceptados: \" . (\\$terminos ? 'Sí' : 'No') . \"</p>\";",
+      "\techo \"<p>Comentario: \" . nl2br(htmlspecialchars(\\$comentario)) . \"</p>\";",
+      "}",
+      "?>",
+      "$0"
+    ],
+    "description": "Procesamiento PHP de formulario con TODOS los tipos de input"
+  },
+  "Formulario registro PHP completo": {
+    "prefix": "formphpregistro",
+    "body": [
+      "<?php",
+      "\\$errores = [];",
+      "\\$exito = false;",
+      "",
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t\\$nombre = trim(\\$_POST['nombre'] ?? '');",
+      "\t\\$email = trim(\\$_POST['email'] ?? '');",
+      "\t\\$password = \\$_POST['password'] ?? '';",
+      "\t\\$password2 = \\$_POST['password2'] ?? '';",
+      "\t\\$telefono = trim(\\$_POST['telefono'] ?? '');",
+      "\t\\$fechaNac = \\$_POST['fechaNac'] ?? '';",
+      "\t\\$genero = \\$_POST['genero'] ?? '';",
+      "\t\\$pais = \\$_POST['pais'] ?? '';",
+      "\t\\$terminos = isset(\\$_POST['terminos']);",
+      "",
+      "\t// Validaciones",
+      "\tif (empty(\\$nombre)) \\$errores[] = 'El nombre es obligatorio';",
+      "\tif (strlen(\\$nombre) < 2) \\$errores[] = 'El nombre debe tener al menos 2 caracteres';",
+      "\tif (!filter_var(\\$email, FILTER_VALIDATE_EMAIL)) \\$errores[] = 'Email no válido';",
+      "\tif (strlen(\\$password) < 6) \\$errores[] = 'La contraseña debe tener al menos 6 caracteres';",
+      "\tif (\\$password !== \\$password2) \\$errores[] = 'Las contraseñas no coinciden';",
+      "\tif (!empty(\\$telefono) && !preg_match('/^[0-9]{9}$/', \\$telefono)) \\$errores[] = 'Teléfono no válido (9 dígitos)';",
+      "\tif (!\\$terminos) \\$errores[] = 'Debes aceptar los términos';",
+      "",
+      "\tif (empty(\\$errores)) {",
+      "\t\t\\$exito = true;",
+      "\t\t// Aquí iría: guardar en BD, enviar email, etc.",
+      "\t\t$0",
+      "\t}",
+      "}",
+      "?>"
+    ],
+    "description": "Registro PHP con validación completa"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  SUBIDA DE ARCHIVOS                      ██
+  // ══════════════════════════════════════════════
+
+  "Subida de archivo PHP": {
+    "prefix": "phpupload",
+    "body": [
+      "if (isset(\\$_FILES['${1:archivo}']) && \\$_FILES['${1:archivo}']['error'] === UPLOAD_ERR_OK) {",
+      "\t\\$nombreArchivo = \\$_FILES['${1:archivo}']['name'];",
+      "\t\\$tmpArchivo = \\$_FILES['${1:archivo}']['tmp_name'];",
+      "\t\\$tamano = \\$_FILES['${1:archivo}']['size'];",
+      "\t\\$tipo = \\$_FILES['${1:archivo}']['type'];",
+      "",
+      "\t// Validar extensión",
+      "\t\\$extensionesPermitidas = ['jpg', 'jpeg', 'png', 'gif', 'pdf'];",
+      "\t\\$extension = strtolower(pathinfo(\\$nombreArchivo, PATHINFO_EXTENSION));",
+      "",
+      "\tif (!in_array(\\$extension, \\$extensionesPermitidas)) {",
+      "\t\techo 'Extensión no permitida';",
+      "\t} elseif (\\$tamano > ${2:5} * 1024 * 1024) {",
+      "\t\techo 'Archivo demasiado grande (máx ${2:5}MB)';",
+      "\t} else {",
+      "\t\t\\$destino = '${3:uploads/}' . uniqid() . '.' . \\$extension;",
+      "\t\tif (move_uploaded_file(\\$tmpArchivo, \\$destino)) {",
+      "\t\t\techo 'Archivo subido correctamente: ' . \\$destino;",
+      "\t\t} else {",
+      "\t\t\techo 'Error al mover el archivo';",
+      "\t\t}",
+      "\t}",
+      "}",
+      "$0"
+    ],
+    "description": "Subida de archivo con validaciones"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  SESIONES                                ██
+  // ══════════════════════════════════════════════
+
+  "session_start": {
+    "prefix": "sess",
+    "body": "session_start();$0",
+    "description": "Iniciar sesión"
+  },
+  "Crear sesión": {
+    "prefix": "sessset",
+    "body": "\\$_SESSION['${1:clave}'] = ${2:'valor'};$0",
+    "description": "Guardar dato en sesión"
+  },
+  "Leer sesión": {
+    "prefix": "sessget",
+    "body": "\\$${1:dato} = \\$_SESSION['${2:clave}'] ?? ${3:null};$0",
+    "description": "Leer dato de sesión con fallback"
+  },
+  "Comprobar sesión (login)": {
+    "prefix": "sesscheck",
+    "body": [
+      "session_start();",
+      "if (!isset(\\$_SESSION['${1:usuario}'])) {",
+      "\theader('Location: ${2:login.php}');",
+      "\texit();",
+      "}",
+      "$0"
+    ],
+    "description": "Comprobar si el usuario está logueado"
+  },
+  "Destruir sesión (logout)": {
+    "prefix": "sessdestroy",
+    "body": [
+      "session_start();",
+      "session_unset();",
+      "session_destroy();",
+      "header('Location: ${1:login.php}');",
+      "exit();",
+      "$0"
+    ],
+    "description": "Cerrar sesión completa"
+  },
+  "Login PHP completo": {
+    "prefix": "phplogin",
+    "body": [
+      "<?php",
+      "session_start();",
+      "\\$error = '';",
+      "",
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t\\$usuario = trim(\\$_POST['usuario'] ?? '');",
+      "\t\\$password = \\$_POST['password'] ?? '';",
+      "",
+      "\t// Aquí normalmente consultarías la BD",
+      "\t\\$usuarioCorrecto = '${1:admin}';",
+      "\t\\$passwordCorrecto = '${2:1234}';",
+      "",
+      "\tif (\\$usuario === \\$usuarioCorrecto && \\$password === \\$passwordCorrecto) {",
+      "\t\t\\$_SESSION['usuario'] = \\$usuario;",
+      "\t\t\\$_SESSION['logueado'] = true;",
+      "\t\theader('Location: ${3:panel.php}');",
+      "\t\texit();",
+      "\t} else {",
+      "\t\t\\$error = 'Usuario o contraseña incorrectos';",
+      "\t}",
+      "}",
+      "?>",
+      "$0"
+    ],
+    "description": "Sistema de login PHP con sesiones"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  COOKIES                                 ██
+  // ══════════════════════════════════════════════
+
+  "Crear cookie": {
+    "prefix": "cookieset",
+    "body": "setcookie('${1:nombre}', ${2:'valor'}, time() + ${3:86400}, '/');$0",
+    "description": "Crear cookie (86400 = 1 día)"
+  },
+  "Leer cookie": {
+    "prefix": "cookieget",
+    "body": "\\$${1:dato} = \\$_COOKIE['${2:nombre}'] ?? ${3:null};$0",
+    "description": "Leer cookie con fallback"
+  },
+  "Borrar cookie": {
+    "prefix": "cookiedel",
+    "body": "setcookie('${1:nombre}', '', time() - 3600, '/');$0",
+    "description": "Borrar cookie"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ARRAYS                                  ██
+  // ══════════════════════════════════════════════
+
+  "Array indexado": {
+    "prefix": "arri",
+    "body": "\\$${1:array} = [${2:'valor1'}, ${3:'valor2'}, ${4:'valor3'}];$0",
+    "description": "Array indexado"
+  },
+  "Array asociativo": {
+    "prefix": "arr",
+    "body": "\\$${1:array} = [${2:'clave'} => ${3:'valor'}];$0",
+    "description": "Array asociativo"
+  },
+  "Array multidimensional": {
+    "prefix": "arrm",
+    "body": [
+      "\\$${1:array} = [",
+      "\t[${2:'dato1'}, ${3:'dato2'}, ${4:'dato3'}],",
+      "\t[${5:'dato4'}, ${6:'dato5'}, ${7:'dato6'}],",
+      "];$0"
+    ],
+    "description": "Array multidimensional"
+  },
+  "array_push": {
+    "prefix": "push",
+    "body": "\\$${1:array}[] = ${2:'nuevoValor'};$0",
+    "description": "Añadir elemento al array"
+  },
+  "count": {
+    "prefix": "cnt",
+    "body": "count(${1:\\$array})$0",
+    "description": "count()"
+  },
+  "in_array": {
+    "prefix": "ina",
+    "body": "in_array(${1:'valor'}, ${2:\\$array})$0",
+    "description": "in_array()"
+  },
+  "array_merge": {
+    "prefix": "amerge",
+    "body": "\\$${1:resultado} = array_merge(${2:\\$array1}, ${3:\\$array2});$0",
+    "description": "array_merge"
+  },
+  "sort": {
+    "prefix": "sort",
+    "body": "sort(${1:\\$array});$0",
+    "description": "Ordenar array"
+  },
+  "array_map": {
+    "prefix": "amap",
+    "body": "\\$${1:resultado} = array_map(function(\\$item) {\n\treturn ${2:\\$item};\n}, ${3:\\$array});$0",
+    "description": "array_map con función"
+  },
+  "array_filter": {
+    "prefix": "afilter",
+    "body": "\\$${1:resultado} = array_filter(${2:\\$array}, function(\\$item) {\n\treturn ${3:true};\n});$0",
+    "description": "array_filter con función"
+  },
+  "implode": {
+    "prefix": "impl",
+    "body": "implode('${1:, }', ${2:\\$array})$0",
+    "description": "implode - unir array en string"
+  },
+  "explode": {
+    "prefix": "expl",
+    "body": "\\$${1:partes} = explode('${2:,}', ${3:\\$cadena});$0",
+    "description": "explode - separar string en array"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  STRINGS                                 ██
+  // ══════════════════════════════════════════════
+
+  "strlen": {
+    "prefix": "slen",
+    "body": "strlen(${1:\\$cadena})$0",
+    "description": "strlen - longitud de cadena"
+  },
+  "strtolower/strtoupper": {
+    "prefix": "stol",
+    "body": "strtolower(${1:\\$cadena})$0",
+    "description": "strtolower"
+  },
+  "substr": {
+    "prefix": "subs",
+    "body": "substr(${1:\\$cadena}, ${2:0}, ${3:5})$0",
+    "description": "substr - extraer subcadena"
+  },
+  "str_replace": {
+    "prefix": "srep",
+    "body": "str_replace('${1:buscar}', '${2:reemplazar}', ${3:\\$cadena})$0",
+    "description": "str_replace"
+  },
+  "strpos": {
+    "prefix": "spos",
+    "body": "strpos(${1:\\$cadena}, '${2:buscar}')$0",
+    "description": "strpos - buscar posición"
+  },
+  "trim": {
+    "prefix": "trim",
+    "body": "trim(${1:\\$cadena})$0",
+    "description": "trim - eliminar espacios"
+  },
+  "sprintf": {
+    "prefix": "spf",
+    "body": "sprintf('${1:%s tiene %d años}', ${2:\\$nombre}, ${3:\\$edad})$0",
+    "description": "sprintf - formatear string"
+  },
+  "preg_match": {
+    "prefix": "pregm",
+    "body": [
+      "if (preg_match('${1:/^[a-zA-Z]+$/}', ${2:\\$cadena})) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "preg_match - expresión regular"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  INCLUDE / REQUIRE                       ██
+  // ══════════════════════════════════════════════
+
+  "include": {
+    "prefix": "inc",
+    "body": "include '${1:archivo.php}';$0",
+    "description": "include"
+  },
+  "include_once": {
+    "prefix": "inco",
+    "body": "include_once '${1:archivo.php}';$0",
+    "description": "include_once"
+  },
+  "require": {
+    "prefix": "req",
+    "body": "require '${1:archivo.php}';$0",
+    "description": "require"
+  },
+  "require_once": {
+    "prefix": "reqo",
+    "body": "require_once '${1:archivo.php}';$0",
+    "description": "require_once"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CLASES Y OOP                            ██
+  // ══════════════════════════════════════════════
+
+  "Clase PHP": {
+    "prefix": "clase",
+    "body": [
+      "class ${1:MiClase} {",
+      "\tprivate \\$${2:propiedad};",
+      "",
+      "\tpublic function __construct(${3:\\$param}) {",
+      "\t\t\\$this->${2:propiedad} = ${3:\\$param};",
+      "\t}",
+      "",
+      "\tpublic function ${4:getPropiedad}() {",
+      "\t\treturn \\$this->${2:propiedad};",
+      "\t}",
+      "",
+      "\t$0",
+      "}"
+    ],
+    "description": "Clase PHP con constructor y método"
+  },
+  "Clase con herencia": {
+    "prefix": "clasext",
+    "body": [
+      "class ${1:Hija} extends ${2:Padre} {",
+      "\tpublic function __construct(${3:\\$params}) {",
+      "\t\tparent::__construct(${3:\\$params});",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Clase con herencia (extends)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FECHA Y HORA                            ██
+  // ══════════════════════════════════════════════
+
+  "date": {
+    "prefix": "dat",
+    "body": "date('${1:d/m/Y H:i:s}')$0",
+    "description": "date() - fecha actual formateada"
+  },
+  "time": {
+    "prefix": "tim",
+    "body": "time()$0",
+    "description": "time() - timestamp Unix actual"
+  },
+  "strtotime": {
+    "prefix": "strt",
+    "body": "strtotime('${1:+1 day}')$0",
+    "description": "strtotime - convertir texto a timestamp"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  HEADER Y REDIRECCIÓN                    ██
+  // ══════════════════════════════════════════════
+
+  "Header redirect": {
+    "prefix": "redir",
+    "body": [
+      "header('Location: ${1:pagina.php}');",
+      "exit();",
+      "$0"
+    ],
+    "description": "Redirección con header"
+  },
+  "Header content type": {
+    "prefix": "headerct",
+    "body": "header('Content-Type: ${1|text/html,application/json,text/plain,text/xml|}; charset=UTF-8');$0",
+    "description": "Header Content-Type"
+  },
+  "Header JSON": {
+    "prefix": "headerjson",
+    "body": [
+      "header('Content-Type: application/json; charset=UTF-8');",
+      "echo json_encode(${1:\\$datos});",
+      "exit();",
+      "$0"
+    ],
+    "description": "Respuesta JSON"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  JSON                                    ██
+  // ══════════════════════════════════════════════
+
+  "json_encode": {
+    "prefix": "jsen",
+    "body": "json_encode(${1:\\$datos})$0",
+    "description": "json_encode"
+  },
+  "json_decode": {
+    "prefix": "jsde",
+    "body": "json_decode(${1:\\$json}, true)$0",
+    "description": "json_decode como array asociativo"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  AJAX - ENDPOINT PHP                     ██
+  // ══════════════════════════════════════════════
+
+  "Endpoint AJAX PHP": {
+    "prefix": "ajaxphp",
+    "body": [
+      "<?php",
+      "header('Content-Type: application/json; charset=UTF-8');",
+      "",
+      "\\$respuesta = ['exito' => false, 'mensaje' => '', 'datos' => null];",
+      "",
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t// Leer datos JSON del body",
+      "\t\\$input = json_decode(file_get_contents('php://input'), true);",
+      "",
+      "\t// O leer datos de formulario",
+      "\t// \\$nombre = \\$_POST['nombre'] ?? '';",
+      "",
+      "\t\\$${1:nombre} = \\$input['${1:nombre}'] ?? '';",
+      "",
+      "\tif (!empty(\\$${1:nombre})) {",
+      "\t\t\\$respuesta['exito'] = true;",
+      "\t\t\\$respuesta['mensaje'] = 'Datos recibidos correctamente';",
+      "\t\t\\$respuesta['datos'] = ['${1:nombre}' => \\$${1:nombre}];",
+      "\t\t$0",
+      "\t} else {",
+      "\t\t\\$respuesta['mensaje'] = 'El campo ${1:nombre} es obligatorio';",
+      "\t}",
+      "} else {",
+      "\t\\$respuesta['mensaje'] = 'Método no permitido';",
+      "}",
+      "",
+      "echo json_encode(\\$respuesta);",
+      "?>"
+    ],
+    "description": "Endpoint PHP para peticiones AJAX con respuesta JSON"
+  },
+  "Endpoint AJAX con FormData": {
+    "prefix": "ajaxphpform",
+    "body": [
+      "<?php",
+      "header('Content-Type: application/json; charset=UTF-8');",
+      "",
+      "\\$respuesta = ['exito' => false, 'mensaje' => ''];",
+      "",
+      "if (\\$_SERVER['REQUEST_METHOD'] === 'POST') {",
+      "\t\\$nombre = trim(\\$_POST['nombre'] ?? '');",
+      "\t\\$email = trim(\\$_POST['email'] ?? '');",
+      "",
+      "\tif (empty(\\$nombre) || empty(\\$email)) {",
+      "\t\t\\$respuesta['mensaje'] = 'Todos los campos son obligatorios';",
+      "\t} elseif (!filter_var(\\$email, FILTER_VALIDATE_EMAIL)) {",
+      "\t\t\\$respuesta['mensaje'] = 'Email no válido';",
+      "\t} else {",
+      "\t\t\\$respuesta['exito'] = true;",
+      "\t\t\\$respuesta['mensaje'] = \"Hola \\$nombre, datos recibidos.\";",
+      "\t\t$0",
+      "\t}",
+      "}",
+      "",
+      "echo json_encode(\\$respuesta);",
+      "?>"
+    ],
+    "description": "Endpoint PHP para AJAX con FormData (POST normal)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  BASE DE DATOS (MySQL)                   ██
+  // ══════════════════════════════════════════════
+
+  "Conexión MySQLi": {
+    "prefix": "dbmysqli",
+    "body": [
+      "\\$servidor = '${1:localhost}';",
+      "\\$usuario = '${2:root}';",
+      "\\$password = '${3:}';",
+      "\\$baseDatos = '${4:mi_base_datos}';",
+      "",
+      "\\$conexion = new mysqli(\\$servidor, \\$usuario, \\$password, \\$baseDatos);",
+      "",
+      "if (\\$conexion->connect_error) {",
+      "\tdie('Error de conexión: ' . \\$conexion->connect_error);",
+      "}",
+      "",
+      "\\$conexion->set_charset('utf8mb4');",
+      "$0"
+    ],
+    "description": "Conexión MySQLi"
+  },
+  "Conexión PDO": {
+    "prefix": "dbpdo",
+    "body": [
+      "try {",
+      "\t\\$pdo = new PDO(",
+      "\t\t'mysql:host=${1:localhost};dbname=${2:mi_base_datos};charset=utf8mb4',",
+      "\t\t'${3:root}',",
+      "\t\t'${4:}',",
+      "\t\t[",
+      "\t\t\tPDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,",
+      "\t\t\tPDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,",
+      "\t\t]",
+      "\t);",
+      "} catch (PDOException \\$e) {",
+      "\tdie('Error de conexión: ' . \\$e->getMessage());",
+      "}",
+      "$0"
+    ],
+    "description": "Conexión PDO con manejo de errores"
+  },
+  "SELECT PDO": {
+    "prefix": "dbselect",
+    "body": [
+      "\\$sql = '${1:SELECT * FROM ${2:tabla} WHERE ${3:id} = :${3:id}}';",
+      "\\$stmt = \\$pdo->prepare(\\$sql);",
+      "\\$stmt->execute([':${3:id}' => ${4:\\$id}]);",
+      "\\$${5:resultados} = \\$stmt->fetchAll();",
+      "$0"
+    ],
+    "description": "SELECT con PDO prepared statement"
+  },
+  "INSERT PDO": {
+    "prefix": "dbinsert",
+    "body": [
+      "\\$sql = 'INSERT INTO ${1:tabla} (${2:nombre}, ${3:email}) VALUES (:${2:nombre}, :${3:email})';",
+      "\\$stmt = \\$pdo->prepare(\\$sql);",
+      "\\$stmt->execute([",
+      "\t':${2:nombre}' => \\$${2:nombre},",
+      "\t':${3:email}' => \\$${3:email},",
+      "]);",
+      "$0"
+    ],
+    "description": "INSERT con PDO prepared statement"
+  },
+  "UPDATE PDO": {
+    "prefix": "dbupdate",
+    "body": [
+      "\\$sql = 'UPDATE ${1:tabla} SET ${2:nombre} = :${2:nombre} WHERE ${3:id} = :${3:id}';",
+      "\\$stmt = \\$pdo->prepare(\\$sql);",
+      "\\$stmt->execute([':${2:nombre}' => \\$${2:nombre}, ':${3:id}' => \\$${3:id}]);",
+      "$0"
+    ],
+    "description": "UPDATE con PDO prepared statement"
+  },
+  "DELETE PDO": {
+    "prefix": "dbdelete",
+    "body": [
+      "\\$sql = 'DELETE FROM ${1:tabla} WHERE ${2:id} = :${2:id}';",
+      "\\$stmt = \\$pdo->prepare(\\$sql);",
+      "\\$stmt->execute([':${2:id}' => \\$${2:id}]);",
+      "$0"
+    ],
+    "description": "DELETE con PDO prepared statement"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TRY/CATCH                               ██
+  // ══════════════════════════════════════════════
+
+  "try catch": {
+    "prefix": "tryc",
+    "body": [
+      "try {",
+      "\t$0",
+      "} catch (Exception \\$e) {",
+      "\techo 'Error: ' . \\$e->getMessage();",
+      "}"
+    ],
+    "description": "try...catch"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  PLANTILLAS                              ██
+  // ══════════════════════════════════════════════
+
+  "HTML con PHP": {
+    "prefix": "htmlphp",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Título}</title>",
+      "</head>",
+      "<body>",
+      "\t<?php",
+      "\t$0",
+      "\t?>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Plantilla HTML con bloque PHP"
+  },
+  "PHP foreach en HTML": {
+    "prefix": "phpforehtml",
+    "body": [
+      "<?php foreach (${1:\\$array} as ${2:\\$item}): ?>",
+      "\t<${3:li}><?= htmlspecialchars(${2:\\$item}) ?></${3:li}>",
+      "<?php endforeach; ?>",
+      "$0"
+    ],
+    "description": "foreach PHP con sintaxis alternativa en HTML"
+  },
+  "PHP if en HTML": {
+    "prefix": "phpifhtml",
+    "body": [
+      "<?php if (${1:condicion}): ?>",
+      "\t$2",
+      "<?php else: ?>",
+      "\t$3",
+      "<?php endif; ?>",
+      "$0"
+    ],
+    "description": "if PHP con sintaxis alternativa en HTML"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TABLA HTML DINÁMICA CON PHP             ██
+  // ══════════════════════════════════════════════
+
+  "Tabla dinámica PHP": {
+    "prefix": "phptable",
+    "body": [
+      "<table>",
+      "\t<thead>",
+      "\t\t<tr>",
+      "\t\t\t<th>${1:ID}</th>",
+      "\t\t\t<th>${2:Nombre}</th>",
+      "\t\t\t<th>${3:Email}</th>",
+      "\t\t</tr>",
+      "\t</thead>",
+      "\t<tbody>",
+      "\t\t<?php foreach (${4:\\$datos} as \\$fila): ?>",
+      "\t\t<tr>",
+      "\t\t\t<td><?= htmlspecialchars(\\$fila['${5:id}']) ?></td>",
+      "\t\t\t<td><?= htmlspecialchars(\\$fila['${6:nombre}']) ?></td>",
+      "\t\t\t<td><?= htmlspecialchars(\\$fila['${7:email}']) ?></td>",
+      "\t\t</tr>",
+      "\t\t<?php endforeach; ?>",
+      "\t</tbody>",
+      "</table>",
+      "$0"
+    ],
+    "description": "Tabla HTML generada dinámicamente con PHP"
+  }
+}

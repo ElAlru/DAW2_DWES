@@ -1,0 +1,96 @@
+{
+  // ── JavaScript / TypeScript ──
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "javascript.suggest.enabled": true,
+  "javascript.suggest.autoImports": true,
+  "javascript.validate.enable": true,
+
+  // ── PHP (Intelephense) ──
+  "php.validate.executablePath": "F:\\xampp\\php\\php.exe",
+  "php.validate.enable": true,
+  "php.validate.run": "onType",
+  "php.suggest.basic": false,
+  "intelephense.environment.phpVersion": "8.2.12",
+
+  // ── IntelliSense y autocompletado ──
+  "editor.suggestOnTriggerCharacters": true,
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.tabCompletion": "on",
+  "editor.suggest.showMethods": true,
+  "editor.suggest.showProperties": true,
+  "editor.suggest.showFunctions": true,
+  "editor.suggest.showKeywords": true,
+  "editor.suggest.showSnippets": true,
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.insertMode": "replace",
+  "editor.parameterHints.enabled": true,
+
+  // ── Formato automático ──
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": null,
+  "html.format.indentInnerHtml": true,
+  "html.format.wrapLineLength": 0,
+
+  // ── Brackets y pares ──
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.autoClosingBrackets": "always",
+  "editor.autoClosingQuotes": "always",
+  "editor.autoSurround": "languageDefined",
+
+  // ── HTML: auto-cerrar y renombrar tags ──
+  "html.autoClosingTags": true,
+  "html.autoCreateQuotes": true,
+  "editor.linkedEditing": true,
+
+  // ── Emmet (funciona offline, expande abreviaturas HTML/CSS) ──
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.showExpandedAbbreviation": "always",
+  "emmet.showAbbreviationSuggestions": true,
+  "emmet.includeLanguages": {
+    "php": "html"
+  },
+
+  // ── Experiencia de editor ──
+  "editor.wordWrap": "on",
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": true,
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.smoothScrolling": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.fontSize": 14,
+
+  // ── Navegación ──
+  "breadcrumbs.enabled": true,
+  "explorer.compactFolders": false,
+
+  // ── Terminal integrado ──
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+
+  // ── Asociaciones de archivos ──
+  "files.associations": {
+    "*.js": "javascript",
+    "*.php": "php",
+    "*.html": "html",
+    "*.htm": "html",
+    "*.css": "css"
+  },
+
+  // ── CSS IntelliSense ──
+  "css.validate": true,
+  "css.lint.duplicateProperties": "warning",
+  "css.lint.unknownProperties": "warning",
+
+  // ── HTML ──
+  "html.suggest.html5": true,
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000
+}
+

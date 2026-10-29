@@ -1,0 +1,1342 @@
+{
+  // ══════════════════════════════════════════════
+  // ██  ESTRUCTURAS DE CONTROL                 ██
+  // ══════════════════════════════════════════════
+
+  "for loop": {
+    "prefix": "forr",
+    "body": [
+      "for (var i = 0; i < ${1:array}.length; i++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Bucle for clásico"
+  },
+  "for let": {
+    "prefix": "forlet",
+    "body": [
+      "for (let i = 0; i < ${1:array}.length; i++) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Bucle for con let"
+  },
+  "forEach": {
+    "prefix": "fore",
+    "body": [
+      "${1:array}.forEach(function(${2:elemento}) {",
+      "\t$0",
+      "});"
+    ],
+    "description": "forEach con function"
+  },
+  "forEach arrow": {
+    "prefix": "forea",
+    "body": [
+      "${1:array}.forEach((${2:elemento}) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "forEach con arrow function"
+  },
+  "forEach con índice": {
+    "prefix": "foreai",
+    "body": [
+      "${1:array}.forEach((${2:elemento}, ${3:index}) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "forEach con elemento e índice"
+  },
+  "for...of": {
+    "prefix": "forof",
+    "body": [
+      "for (const ${1:elemento} of ${2:array}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "for...of (iterar valores)"
+  },
+  "for...in": {
+    "prefix": "forin",
+    "body": [
+      "for (const ${1:key} in ${2:objeto}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "for...in (iterar propiedades)"
+  },
+  "while": {
+    "prefix": "wh",
+    "body": [
+      "while (${1:condicion}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Bucle while"
+  },
+  "do while": {
+    "prefix": "dow",
+    "body": [
+      "do {",
+      "\t$0",
+      "} while (${1:condicion});"
+    ],
+    "description": "Bucle do...while"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CONDICIONALES                           ██
+  // ══════════════════════════════════════════════
+
+  "if": {
+    "prefix": "iff",
+    "body": [
+      "if (${1:condicion}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if"
+  },
+  "if else": {
+    "prefix": "ife",
+    "body": [
+      "if (${1:condicion}) {",
+      "\t$2",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if...else"
+  },
+  "if else if": {
+    "prefix": "ifelif",
+    "body": [
+      "if (${1:condicion1}) {",
+      "\t$2",
+      "} else if (${3:condicion2}) {",
+      "\t$4",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "if...else if...else"
+  },
+  "switch": {
+    "prefix": "sw",
+    "body": [
+      "switch (${1:variable}) {",
+      "\tcase ${2:valor1}:",
+      "\t\t$3",
+      "\t\tbreak;",
+      "\tcase ${4:valor2}:",
+      "\t\t$5",
+      "\t\tbreak;",
+      "\tdefault:",
+      "\t\t$0",
+      "\t\tbreak;",
+      "}"
+    ],
+    "description": "Switch case"
+  },
+  "Ternario": {
+    "prefix": "tern",
+    "body": "${1:condicion} ? ${2:verdadero} : ${3:falso}$0",
+    "description": "Operador ternario"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  DOM - SELECCIÓN                         ██
+  // ══════════════════════════════════════════════
+
+  "getElementById": {
+    "prefix": "gid",
+    "body": "document.getElementById(\"${1:id}\")$0",
+    "description": "document.getElementById"
+  },
+  "getElementsByClassName": {
+    "prefix": "gcl",
+    "body": "document.getElementsByClassName(\"${1:clase}\")$0",
+    "description": "document.getElementsByClassName"
+  },
+  "getElementsByTagName": {
+    "prefix": "gtag",
+    "body": "document.getElementsByTagName(\"${1:div}\")$0",
+    "description": "document.getElementsByTagName"
+  },
+  "querySelector": {
+    "prefix": "qs",
+    "body": "document.querySelector(\"${1:selector}\")$0",
+    "description": "document.querySelector"
+  },
+  "querySelectorAll": {
+    "prefix": "qsa",
+    "body": "document.querySelectorAll(\"${1:selector}\")$0",
+    "description": "document.querySelectorAll"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  DOM - MANIPULACIÓN                      ██
+  // ══════════════════════════════════════════════
+
+  "innerHTML": {
+    "prefix": "inn",
+    "body": "document.getElementById(\"${1:id}\").innerHTML = ${2:\"\"};$0",
+    "description": "innerHTML con getElementById"
+  },
+  "textContent": {
+    "prefix": "tc",
+    "body": "${1:elemento}.textContent = ${2:\"texto\"};$0",
+    "description": "textContent"
+  },
+  "innerText": {
+    "prefix": "it",
+    "body": "${1:elemento}.innerText = ${2:\"texto\"};$0",
+    "description": "innerText"
+  },
+  "value": {
+    "prefix": "val",
+    "body": "document.getElementById(\"${1:id}\").value$0",
+    "description": "Obtener value de un input"
+  },
+  "setAttribute": {
+    "prefix": "sattr",
+    "body": "${1:elemento}.setAttribute(\"${2:atributo}\", \"${3:valor}\");$0",
+    "description": "setAttribute"
+  },
+  "getAttribute": {
+    "prefix": "gattr",
+    "body": "${1:elemento}.getAttribute(\"${2:atributo}\")$0",
+    "description": "getAttribute"
+  },
+  "removeAttribute": {
+    "prefix": "rattr",
+    "body": "${1:elemento}.removeAttribute(\"${2:atributo}\");$0",
+    "description": "removeAttribute"
+  },
+  "classList.add": {
+    "prefix": "cladd",
+    "body": "${1:elemento}.classList.add(\"${2:clase}\");$0",
+    "description": "classList.add"
+  },
+  "classList.remove": {
+    "prefix": "clrem",
+    "body": "${1:elemento}.classList.remove(\"${2:clase}\");$0",
+    "description": "classList.remove"
+  },
+  "classList.toggle": {
+    "prefix": "cltog",
+    "body": "${1:elemento}.classList.toggle(\"${2:clase}\");$0",
+    "description": "classList.toggle"
+  },
+  "classList.contains": {
+    "prefix": "clcon",
+    "body": "${1:elemento}.classList.contains(\"${2:clase}\")$0",
+    "description": "classList.contains"
+  },
+  "style": {
+    "prefix": "sty",
+    "body": "${1:elemento}.style.${2:propiedad} = \"${3:valor}\";$0",
+    "description": "Cambiar estilo inline"
+  },
+  "createElement": {
+    "prefix": "ce",
+    "body": "const ${1:nuevoElemento} = document.createElement(\"${2:div}\");$0",
+    "description": "createElement"
+  },
+  "appendChild": {
+    "prefix": "ac",
+    "body": "${1:padre}.appendChild(${2:hijo});$0",
+    "description": "appendChild"
+  },
+  "removeChild": {
+    "prefix": "rc",
+    "body": "${1:padre}.removeChild(${2:hijo});$0",
+    "description": "removeChild"
+  },
+  "remove": {
+    "prefix": "rem",
+    "body": "${1:elemento}.remove();$0",
+    "description": "element.remove()"
+  },
+  "insertBefore": {
+    "prefix": "ib",
+    "body": "${1:padre}.insertBefore(${2:nuevo}, ${3:referencia});$0",
+    "description": "insertBefore"
+  },
+  "cloneNode": {
+    "prefix": "cn",
+    "body": "const ${1:clon} = ${2:elemento}.cloneNode(${3:true});$0",
+    "description": "cloneNode (true = deep clone)"
+  },
+  "Crear elemento completo": {
+    "prefix": "cefull",
+    "body": [
+      "const ${1:elem} = document.createElement(\"${2:div}\");",
+      "${1:elem}.className = \"${3:clase}\";",
+      "${1:elem}.textContent = \"${4:contenido}\";",
+      "${5:document.body}.appendChild(${1:elem});",
+      "$0"
+    ],
+    "description": "Crear elemento con clase, contenido y añadirlo"
+  },
+  "parentElement": {
+    "prefix": "parent",
+    "body": "${1:elemento}.parentElement$0",
+    "description": "parentElement"
+  },
+  "children": {
+    "prefix": "children",
+    "body": "${1:elemento}.children$0",
+    "description": "children (HTMLCollection)"
+  },
+  "nextElementSibling": {
+    "prefix": "nextsib",
+    "body": "${1:elemento}.nextElementSibling$0",
+    "description": "nextElementSibling"
+  },
+  "previousElementSibling": {
+    "prefix": "prevsib",
+    "body": "${1:elemento}.previousElementSibling$0",
+    "description": "previousElementSibling"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  EVENTOS                                 ██
+  // ══════════════════════════════════════════════
+
+  "addEventListener": {
+    "prefix": "adel",
+    "body": [
+      "${1:element}.addEventListener(\"${2:click}\", function(${3:e}) {",
+      "\t$0",
+      "});"
+    ],
+    "description": "addEventListener con function"
+  },
+  "addEventListener arrow": {
+    "prefix": "adela",
+    "body": [
+      "${1:element}.addEventListener(\"${2:click}\", (${3:e}) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "addEventListener con arrow function"
+  },
+  "DOMContentLoaded": {
+    "prefix": "domready",
+    "body": [
+      "document.addEventListener(\"DOMContentLoaded\", () => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "DOMContentLoaded - ejecutar cuando el DOM esté listo"
+  },
+  "window.onload": {
+    "prefix": "wonload",
+    "body": [
+      "window.onload = function() {",
+      "\t$0",
+      "};"
+    ],
+    "description": "window.onload"
+  },
+  "onclick inline": {
+    "prefix": "onclick",
+    "body": "${1:elemento}.onclick = function(${2:e}) {\n\t$0\n};",
+    "description": "onclick como propiedad"
+  },
+  "onsubmit (prevenir envío)": {
+    "prefix": "onsub",
+    "body": [
+      "${1:formulario}.addEventListener(\"submit\", function(e) {",
+      "\te.preventDefault();",
+      "\t$0",
+      "});"
+    ],
+    "description": "onsubmit con preventDefault"
+  },
+  "onchange": {
+    "prefix": "onch",
+    "body": [
+      "${1:elemento}.addEventListener(\"change\", function(e) {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Evento change"
+  },
+  "oninput": {
+    "prefix": "oninp",
+    "body": [
+      "${1:elemento}.addEventListener(\"input\", function(e) {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Evento input (en tiempo real)"
+  },
+  "onkeydown": {
+    "prefix": "onkd",
+    "body": [
+      "document.addEventListener(\"keydown\", function(e) {",
+      "\tif (e.key === \"${1:Enter}\") {",
+      "\t\t$0",
+      "\t}",
+      "});"
+    ],
+    "description": "Evento keydown con comprobación de tecla"
+  },
+  "onmouseover / onmouseout": {
+    "prefix": "onmouse",
+    "body": [
+      "${1:elemento}.addEventListener(\"mouseover\", function() {",
+      "\t$2",
+      "});",
+      "${1:elemento}.addEventListener(\"mouseout\", function() {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Eventos mouseover y mouseout"
+  },
+  "Event delegation": {
+    "prefix": "evdel",
+    "body": [
+      "document.getElementById(\"${1:contenedor}\").addEventListener(\"click\", function(e) {",
+      "\tif (e.target.matches(\"${2:.clase}\")) {",
+      "\t\t$0",
+      "\t}",
+      "});"
+    ],
+    "description": "Event delegation (delegación de eventos)"
+  },
+  "preventDefault": {
+    "prefix": "epd",
+    "body": "e.preventDefault();$0",
+    "description": "preventDefault"
+  },
+  "stopPropagation": {
+    "prefix": "esp",
+    "body": "e.stopPropagation();$0",
+    "description": "stopPropagation"
+  },
+  "removeEventListener": {
+    "prefix": "rel",
+    "body": "${1:elemento}.removeEventListener(\"${2:click}\", ${3:miFuncion});$0",
+    "description": "removeEventListener"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CONSOLE                                 ██
+  // ══════════════════════════════════════════════
+
+  "console.log": {
+    "prefix": "cl",
+    "body": "console.log($1);$0",
+    "description": "console.log"
+  },
+  "console.log variable": {
+    "prefix": "clv",
+    "body": "console.log(\"${1:var}:\", ${1:var});$0",
+    "description": "console.log con nombre de variable"
+  },
+  "console.error": {
+    "prefix": "cer",
+    "body": "console.error($1);$0",
+    "description": "console.error"
+  },
+  "console.warn": {
+    "prefix": "cw",
+    "body": "console.warn($1);$0",
+    "description": "console.warn"
+  },
+  "console.table": {
+    "prefix": "ctab",
+    "body": "console.table($1);$0",
+    "description": "console.table (para arrays/objetos)"
+  },
+  "console.time": {
+    "prefix": "ctime",
+    "body": [
+      "console.time(\"${1:timer}\");",
+      "$0",
+      "console.timeEnd(\"${1:timer}\");"
+    ],
+    "description": "console.time/timeEnd para medir rendimiento"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FUNCIONES                               ██
+  // ══════════════════════════════════════════════
+
+  "function": {
+    "prefix": "fn",
+    "body": [
+      "function ${1:nombre}(${2:params}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Declaración de función"
+  },
+  "function con return": {
+    "prefix": "fnr",
+    "body": [
+      "function ${1:nombre}(${2:params}) {",
+      "\t$3",
+      "\treturn ${4:resultado};",
+      "}"
+    ],
+    "description": "Función con return"
+  },
+  "arrow function": {
+    "prefix": "af",
+    "body": "const ${1:nombre} = (${2:params}) => {$0};",
+    "description": "Arrow function"
+  },
+  "arrow function inline": {
+    "prefix": "afi",
+    "body": "const ${1:nombre} = (${2:params}) => ${3:expresion};$0",
+    "description": "Arrow function inline (una línea)"
+  },
+  "IIFE": {
+    "prefix": "iife",
+    "body": [
+      "(function() {",
+      "\t$0",
+      "})();"
+    ],
+    "description": "Immediately Invoked Function Expression"
+  },
+  "callback": {
+    "prefix": "cb",
+    "body": "function(${1:resultado}) {\n\t$0\n}",
+    "description": "Función callback"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  VARIABLES                               ██
+  // ══════════════════════════════════════════════
+
+  "let": {
+    "prefix": "le",
+    "body": "let ${1:variable} = ${2:valor};$0",
+    "description": "Declarar let"
+  },
+  "const": {
+    "prefix": "co",
+    "body": "const ${1:VARIABLE} = ${2:valor};$0",
+    "description": "Declarar const"
+  },
+  "var": {
+    "prefix": "vr",
+    "body": "var ${1:variable} = ${2:valor};$0",
+    "description": "Declarar var"
+  },
+  "Destructuring array": {
+    "prefix": "dearr",
+    "body": "const [${1:a}, ${2:b}] = ${3:array};$0",
+    "description": "Destructuring de array"
+  },
+  "Destructuring objeto": {
+    "prefix": "deobj",
+    "body": "const { ${1:propiedad1}, ${2:propiedad2} } = ${3:objeto};$0",
+    "description": "Destructuring de objeto"
+  },
+  "Template literal": {
+    "prefix": "tl",
+    "body": "`${1:texto} \\${${2:variable}} ${3:más texto}`$0",
+    "description": "Template literal con interpolación"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ARRAYS - MÉTODOS                        ██
+  // ══════════════════════════════════════════════
+
+  "Array nuevo": {
+    "prefix": "arrnew",
+    "body": "const ${1:array} = [${2}];$0",
+    "description": "Crear nuevo array"
+  },
+  "push": {
+    "prefix": "push",
+    "body": "${1:array}.push(${2:elemento});$0",
+    "description": "array.push"
+  },
+  "pop": {
+    "prefix": "pop",
+    "body": "${1:array}.pop()$0",
+    "description": "array.pop"
+  },
+  "shift": {
+    "prefix": "shift",
+    "body": "${1:array}.shift()$0",
+    "description": "array.shift (eliminar primero)"
+  },
+  "unshift": {
+    "prefix": "unshift",
+    "body": "${1:array}.unshift(${2:elemento});$0",
+    "description": "array.unshift (añadir al inicio)"
+  },
+  "splice": {
+    "prefix": "splice",
+    "body": "${1:array}.splice(${2:indice}, ${3:1});$0",
+    "description": "array.splice (eliminar/insertar)"
+  },
+  "slice": {
+    "prefix": "slice",
+    "body": "${1:array}.slice(${2:inicio}, ${3:fin})$0",
+    "description": "array.slice (extraer porción)"
+  },
+  "map": {
+    "prefix": "map",
+    "body": [
+      "const ${1:nuevo} = ${2:array}.map((${3:item}) => {",
+      "\treturn ${4:item};",
+      "});$0"
+    ],
+    "description": "array.map"
+  },
+  "filter": {
+    "prefix": "filt",
+    "body": [
+      "const ${1:filtrado} = ${2:array}.filter((${3:item}) => {",
+      "\treturn ${4:true};",
+      "});$0"
+    ],
+    "description": "array.filter"
+  },
+  "reduce": {
+    "prefix": "reduce",
+    "body": [
+      "const ${1:total} = ${2:array}.reduce((${3:acumulador}, ${4:item}) => {",
+      "\treturn ${3:acumulador} + ${4:item};",
+      "}, ${5:0});$0"
+    ],
+    "description": "array.reduce"
+  },
+  "find": {
+    "prefix": "find",
+    "body": "const ${1:encontrado} = ${2:array}.find((${3:item}) => ${4:item.id === id});$0",
+    "description": "array.find"
+  },
+  "findIndex": {
+    "prefix": "findi",
+    "body": "const ${1:indice} = ${2:array}.findIndex((${3:item}) => ${4:item.id === id});$0",
+    "description": "array.findIndex"
+  },
+  "some": {
+    "prefix": "some",
+    "body": "${1:array}.some((${2:item}) => ${3:condicion})$0",
+    "description": "array.some"
+  },
+  "every": {
+    "prefix": "every",
+    "body": "${1:array}.every((${2:item}) => ${3:condicion})$0",
+    "description": "array.every"
+  },
+  "includes": {
+    "prefix": "inc",
+    "body": "${1:array}.includes(${2:elemento})$0",
+    "description": "array.includes"
+  },
+  "sort": {
+    "prefix": "sort",
+    "body": "${1:array}.sort((a, b) => ${2:a - b});$0",
+    "description": "array.sort con comparador"
+  },
+  "join": {
+    "prefix": "join",
+    "body": "${1:array}.join(\"${2:, }\")$0",
+    "description": "array.join"
+  },
+  "indexOf": {
+    "prefix": "indexof",
+    "body": "${1:array}.indexOf(${2:elemento})$0",
+    "description": "array.indexOf"
+  },
+  "Array.from": {
+    "prefix": "arrfrom",
+    "body": "Array.from(${1:nodelist})$0",
+    "description": "Array.from (convertir NodeList a array)"
+  },
+  "Spread operator": {
+    "prefix": "spread",
+    "body": "[...${1:array}]$0",
+    "description": "Spread operator para copiar array"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  OBJETOS                                 ██
+  // ══════════════════════════════════════════════
+
+  "Objeto": {
+    "prefix": "obj",
+    "body": [
+      "const ${1:objeto} = {",
+      "\t${2:propiedad}: ${3:valor},",
+      "\t$0",
+      "};"
+    ],
+    "description": "Crear objeto"
+  },
+  "Objeto con métodos": {
+    "prefix": "objmet",
+    "body": [
+      "const ${1:objeto} = {",
+      "\t${2:nombre}: ${3:'valor'},",
+      "\t${4:metodo}() {",
+      "\t\t$0",
+      "\t}",
+      "};"
+    ],
+    "description": "Objeto con método shorthand"
+  },
+  "Object.keys": {
+    "prefix": "okeys",
+    "body": "Object.keys(${1:objeto})$0",
+    "description": "Object.keys"
+  },
+  "Object.values": {
+    "prefix": "ovals",
+    "body": "Object.values(${1:objeto})$0",
+    "description": "Object.values"
+  },
+  "Object.entries": {
+    "prefix": "oent",
+    "body": "Object.entries(${1:objeto})$0",
+    "description": "Object.entries"
+  },
+  "Object.assign": {
+    "prefix": "oassign",
+    "body": "Object.assign({}, ${1:obj1}, ${2:obj2})$0",
+    "description": "Object.assign (copiar/mergear)"
+  },
+  "Spread objeto": {
+    "prefix": "spreadobj",
+    "body": "{ ...${1:objeto} }$0",
+    "description": "Spread operator para copiar objeto"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  STRINGS                                 ██
+  // ══════════════════════════════════════════════
+
+  "split": {
+    "prefix": "split",
+    "body": "${1:cadena}.split(\"${2:,}\")$0",
+    "description": "string.split"
+  },
+  "trim": {
+    "prefix": "trim",
+    "body": "${1:cadena}.trim()$0",
+    "description": "string.trim"
+  },
+  "toUpperCase": {
+    "prefix": "tou",
+    "body": "${1:cadena}.toUpperCase()$0",
+    "description": "string.toUpperCase"
+  },
+  "toLowerCase": {
+    "prefix": "tol",
+    "body": "${1:cadena}.toLowerCase()$0",
+    "description": "string.toLowerCase"
+  },
+  "replace": {
+    "prefix": "repl",
+    "body": "${1:cadena}.replace(${2:\"buscar\"}, ${3:\"reemplazo\"})$0",
+    "description": "string.replace"
+  },
+  "substring": {
+    "prefix": "subs",
+    "body": "${1:cadena}.substring(${2:0}, ${3:5})$0",
+    "description": "string.substring"
+  },
+  "startsWith": {
+    "prefix": "starts",
+    "body": "${1:cadena}.startsWith(\"${2:texto}\")$0",
+    "description": "string.startsWith"
+  },
+  "endsWith": {
+    "prefix": "ends",
+    "body": "${1:cadena}.endsWith(\"${2:texto}\")$0",
+    "description": "string.endsWith"
+  },
+  "includes string": {
+    "prefix": "sinc",
+    "body": "${1:cadena}.includes(\"${2:texto}\")$0",
+    "description": "string.includes"
+  },
+  "padStart": {
+    "prefix": "pads",
+    "body": "${1:cadena}.padStart(${2:2}, \"${3:0}\")$0",
+    "description": "string.padStart"
+  },
+  "repeat": {
+    "prefix": "repeat",
+    "body": "${1:cadena}.repeat(${2:3})$0",
+    "description": "string.repeat"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  MATH Y NÚMEROS                          ██
+  // ══════════════════════════════════════════════
+
+  "Math.random": {
+    "prefix": "mrand",
+    "body": "Math.floor(Math.random() * ${1:10})$0",
+    "description": "Número aleatorio entre 0 y N-1"
+  },
+  "Math.random rango": {
+    "prefix": "mrandrange",
+    "body": "Math.floor(Math.random() * (${1:max} - ${2:min} + 1)) + ${2:min}$0",
+    "description": "Número aleatorio entre min y max"
+  },
+  "Math.round": {
+    "prefix": "mround",
+    "body": "Math.round(${1:numero})$0",
+    "description": "Math.round"
+  },
+  "Math.floor": {
+    "prefix": "mfloor",
+    "body": "Math.floor(${1:numero})$0",
+    "description": "Math.floor"
+  },
+  "Math.ceil": {
+    "prefix": "mceil",
+    "body": "Math.ceil(${1:numero})$0",
+    "description": "Math.ceil"
+  },
+  "Math.max / Math.min": {
+    "prefix": "mmax",
+    "body": "Math.max(${1:a}, ${2:b})$0",
+    "description": "Math.max"
+  },
+  "parseInt": {
+    "prefix": "pint",
+    "body": "parseInt(${1:cadena}, 10)$0",
+    "description": "parseInt"
+  },
+  "parseFloat": {
+    "prefix": "pfloat",
+    "body": "parseFloat(${1:cadena})$0",
+    "description": "parseFloat"
+  },
+  "Number.isNaN": {
+    "prefix": "isnan",
+    "body": "isNaN(${1:valor})$0",
+    "description": "isNaN"
+  },
+  "toFixed": {
+    "prefix": "tofix",
+    "body": "${1:numero}.toFixed(${2:2})$0",
+    "description": "number.toFixed (decimales)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  JSON                                    ██
+  // ══════════════════════════════════════════════
+
+  "JSON.stringify": {
+    "prefix": "jss",
+    "body": "JSON.stringify(${1:objeto})$0",
+    "description": "JSON.stringify"
+  },
+  "JSON.parse": {
+    "prefix": "jsp",
+    "body": "JSON.parse(${1:cadenaJSON})$0",
+    "description": "JSON.parse"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TIMERS                                  ██
+  // ══════════════════════════════════════════════
+
+  "setTimeout": {
+    "prefix": "sto",
+    "body": [
+      "setTimeout(() => {",
+      "\t$0",
+      "}, ${1:1000});"
+    ],
+    "description": "setTimeout"
+  },
+  "setInterval": {
+    "prefix": "si",
+    "body": [
+      "const ${1:intervalo} = setInterval(() => {",
+      "\t$0",
+      "}, ${2:1000});"
+    ],
+    "description": "setInterval"
+  },
+  "clearInterval": {
+    "prefix": "ci",
+    "body": "clearInterval(${1:intervalo});$0",
+    "description": "clearInterval"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  DIÁLOGOS                                ██
+  // ══════════════════════════════════════════════
+
+  "alert": {
+    "prefix": "al",
+    "body": "alert(\"${1:mensaje}\");$0",
+    "description": "alert"
+  },
+  "confirm": {
+    "prefix": "conf",
+    "body": [
+      "if (confirm(\"${1:¿Estás seguro?}\")) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "confirm con if"
+  },
+  "prompt": {
+    "prefix": "prom",
+    "body": "const ${1:respuesta} = prompt(\"${2:Introduce un valor}\", \"${3:valor por defecto}\");$0",
+    "description": "prompt"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  WINDOW Y NAVEGACIÓN                     ██
+  // ══════════════════════════════════════════════
+
+  "window.location": {
+    "prefix": "wloc",
+    "body": "window.location.href = \"${1:url}\";$0",
+    "description": "Redirigir con window.location"
+  },
+  "window.open": {
+    "prefix": "wopen",
+    "body": "window.open(\"${1:url}\", \"${2:_blank}\", \"${3:width=600,height=400}\");$0",
+    "description": "Abrir nueva ventana"
+  },
+  "window.close": {
+    "prefix": "wclose",
+    "body": "window.close();$0",
+    "description": "Cerrar ventana"
+  },
+  "window.history.back": {
+    "prefix": "wback",
+    "body": "window.history.back();$0",
+    "description": "Ir atrás en el historial"
+  },
+  "window.scrollTo": {
+    "prefix": "wscroll",
+    "body": "window.scrollTo({ top: ${1:0}, behavior: \"smooth\" });$0",
+    "description": "Scroll suave al inicio"
+  },
+  "window.innerWidth/Height": {
+    "prefix": "wsize",
+    "body": "window.innerWidth + \" x \" + window.innerHeight$0",
+    "description": "Tamaño de la ventana"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  LOCAL/SESSION STORAGE                   ██
+  // ══════════════════════════════════════════════
+
+  "localStorage setItem": {
+    "prefix": "lsset",
+    "body": "localStorage.setItem(\"${1:clave}\", ${2:JSON.stringify(${3:valor})});$0",
+    "description": "localStorage.setItem"
+  },
+  "localStorage getItem": {
+    "prefix": "lsget",
+    "body": "const ${1:dato} = JSON.parse(localStorage.getItem(\"${2:clave}\"));$0",
+    "description": "localStorage.getItem con JSON.parse"
+  },
+  "localStorage removeItem": {
+    "prefix": "lsrem",
+    "body": "localStorage.removeItem(\"${1:clave}\");$0",
+    "description": "localStorage.removeItem"
+  },
+  "localStorage clear": {
+    "prefix": "lsclear",
+    "body": "localStorage.clear();$0",
+    "description": "localStorage.clear"
+  },
+  "sessionStorage setItem": {
+    "prefix": "ssset",
+    "body": "sessionStorage.setItem(\"${1:clave}\", ${2:JSON.stringify(${3:valor})});$0",
+    "description": "sessionStorage.setItem"
+  },
+  "sessionStorage getItem": {
+    "prefix": "ssget",
+    "body": "const ${1:dato} = JSON.parse(sessionStorage.getItem(\"${2:clave}\"));$0",
+    "description": "sessionStorage.getItem"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FETCH / AJAX                            ██
+  // ══════════════════════════════════════════════
+
+  "Fetch GET": {
+    "prefix": "fetchget",
+    "body": [
+      "fetch(\"${1:url}\")",
+      "\t.then(response => response.json())",
+      "\t.then(data => {",
+      "\t\t$0",
+      "\t})",
+      "\t.catch(error => console.error(\"Error:\", error));"
+    ],
+    "description": "Fetch GET con .then"
+  },
+  "Fetch POST": {
+    "prefix": "fetchpost",
+    "body": [
+      "fetch(\"${1:url}\", {",
+      "\tmethod: \"POST\",",
+      "\theaders: {",
+      "\t\t\"Content-Type\": \"application/json\"",
+      "\t},",
+      "\tbody: JSON.stringify({",
+      "\t\t${2:clave}: ${3:valor}",
+      "\t})",
+      "})",
+      "\t.then(response => response.json())",
+      "\t.then(data => {",
+      "\t\t$0",
+      "\t})",
+      "\t.catch(error => console.error(\"Error:\", error));"
+    ],
+    "description": "Fetch POST con JSON"
+  },
+  "Fetch POST FormData": {
+    "prefix": "fetchform",
+    "body": [
+      "const formData = new FormData(${1:document.getElementById(\"miForm\")});",
+      "",
+      "fetch(\"${2:url}\", {",
+      "\tmethod: \"POST\",",
+      "\tbody: formData",
+      "})",
+      "\t.then(response => response.json())",
+      "\t.then(data => {",
+      "\t\t$0",
+      "\t})",
+      "\t.catch(error => console.error(\"Error:\", error));"
+    ],
+    "description": "Fetch POST con FormData"
+  },
+  "Fetch async/await": {
+    "prefix": "fetchasync",
+    "body": [
+      "async function ${1:obtenerDatos}() {",
+      "\ttry {",
+      "\t\tconst response = await fetch(\"${2:url}\");",
+      "\t\tconst data = await response.json();",
+      "\t\t$0",
+      "\t} catch (error) {",
+      "\t\tconsole.error(\"Error:\", error);",
+      "\t}",
+      "}"
+    ],
+    "description": "Fetch con async/await"
+  },
+  "XMLHttpRequest GET": {
+    "prefix": "xhrget",
+    "body": [
+      "const xhr = new XMLHttpRequest();",
+      "xhr.open(\"GET\", \"${1:url}\", true);",
+      "xhr.onreadystatechange = function() {",
+      "\tif (xhr.readyState === 4 && xhr.status === 200) {",
+      "\t\tconst data = JSON.parse(xhr.responseText);",
+      "\t\t$0",
+      "\t}",
+      "};",
+      "xhr.send();"
+    ],
+    "description": "XMLHttpRequest GET clásico"
+  },
+  "XMLHttpRequest POST": {
+    "prefix": "xhrpost",
+    "body": [
+      "const xhr = new XMLHttpRequest();",
+      "xhr.open(\"POST\", \"${1:url}\", true);",
+      "xhr.setRequestHeader(\"Content-Type\", \"application/x-www-form-urlencoded\");",
+      "xhr.onreadystatechange = function() {",
+      "\tif (xhr.readyState === 4 && xhr.status === 200) {",
+      "\t\tconst data = JSON.parse(xhr.responseText);",
+      "\t\t$0",
+      "\t}",
+      "};",
+      "xhr.send(\"${2:nombre=valor&otro=valor2}\");"
+    ],
+    "description": "XMLHttpRequest POST clásico"
+  },
+  "AJAX completo con formulario": {
+    "prefix": "ajaxfull",
+    "body": [
+      "document.getElementById(\"${1:miForm}\").addEventListener(\"submit\", function(e) {",
+      "\te.preventDefault();",
+      "",
+      "\tconst formData = new FormData(this);",
+      "",
+      "\tfetch(\"${2:procesar.php}\", {",
+      "\t\tmethod: \"POST\",",
+      "\t\tbody: formData",
+      "\t})",
+      "\t.then(response => response.json())",
+      "\t.then(data => {",
+      "\t\tif (data.exito) {",
+      "\t\t\tdocument.getElementById(\"${3:resultado}\").innerHTML = data.mensaje;",
+      "\t\t} else {",
+      "\t\t\tdocument.getElementById(\"${3:resultado}\").innerHTML = \"Error: \" + data.mensaje;",
+      "\t\t}",
+      "\t})",
+      "\t.catch(error => {",
+      "\t\tconsole.error(\"Error:\", error);",
+      "\t\tdocument.getElementById(\"${3:resultado}\").innerHTML = \"Error de conexión\";",
+      "\t});",
+      "});"
+    ],
+    "description": "AJAX completo: formulario → fetch → mostrar respuesta"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  VALIDACIÓN DE FORMULARIOS              ██
+  // ══════════════════════════════════════════════
+
+  "Validar formulario": {
+    "prefix": "jsvalidar",
+    "body": [
+      "function validarFormulario() {",
+      "\tlet valido = true;",
+      "",
+      "\tconst nombre = document.getElementById(\"${1:nombre}\").value.trim();",
+      "\tconst email = document.getElementById(\"${2:email}\").value.trim();",
+      "",
+      "\tif (nombre === \"\") {",
+      "\t\talert(\"El nombre es obligatorio\");",
+      "\t\tvalido = false;",
+      "\t}",
+      "",
+      "\tconst regexEmail = /^[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+$/;",
+      "\tif (!regexEmail.test(email)) {",
+      "\t\talert(\"Email no válido\");",
+      "\t\tvalido = false;",
+      "\t}",
+      "",
+      "\treturn valido;",
+      "}",
+      "$0"
+    ],
+    "description": "Función de validación de formulario"
+  },
+  "Validar email regex": {
+    "prefix": "jsvalidemail",
+    "body": "const emailValido = /^[^\\\\s@]+@[^\\\\s@]+\\\\.[^\\\\s@]+$/.test(${1:email});$0",
+    "description": "Validar email con regex"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  PROMISES Y ASYNC                        ██
+  // ══════════════════════════════════════════════
+
+  "Promise": {
+    "prefix": "promise",
+    "body": [
+      "new Promise((resolve, reject) => {",
+      "\t$0",
+      "});"
+    ],
+    "description": "Nueva Promise"
+  },
+  "Promise con then/catch": {
+    "prefix": "promisethen",
+    "body": [
+      "${1:miPromesa}",
+      "\t.then(resultado => {",
+      "\t\t$0",
+      "\t})",
+      "\t.catch(error => {",
+      "\t\tconsole.error(error);",
+      "\t});"
+    ],
+    "description": "Promise con .then y .catch"
+  },
+  "async function": {
+    "prefix": "asyncfn",
+    "body": [
+      "async function ${1:nombre}(${2:params}) {",
+      "\ttry {",
+      "\t\t$0",
+      "\t} catch (error) {",
+      "\t\tconsole.error(error);",
+      "\t}",
+      "}"
+    ],
+    "description": "Función async con try/catch"
+  },
+  "await": {
+    "prefix": "aw",
+    "body": "const ${1:resultado} = await ${2:promesa};$0",
+    "description": "await"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CLASES                                  ██
+  // ══════════════════════════════════════════════
+
+  "Clase JS": {
+    "prefix": "clase",
+    "body": [
+      "class ${1:MiClase} {",
+      "\tconstructor(${2:params}) {",
+      "\t\tthis.${3:propiedad} = ${2:params};",
+      "\t}",
+      "",
+      "\t${4:metodo}() {",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Clase ES6"
+  },
+  "Clase con herencia": {
+    "prefix": "clasext",
+    "body": [
+      "class ${1:Hija} extends ${2:Padre} {",
+      "\tconstructor(${3:params}) {",
+      "\t\tsuper(${3:params});",
+      "\t\t$0",
+      "\t}",
+      "}"
+    ],
+    "description": "Clase con herencia (extends)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TRY/CATCH                               ██
+  // ══════════════════════════════════════════════
+
+  "try catch": {
+    "prefix": "tryc",
+    "body": [
+      "try {",
+      "\t$0",
+      "} catch (error) {",
+      "\tconsole.error(error);",
+      "}"
+    ],
+    "description": "try...catch"
+  },
+  "try catch finally": {
+    "prefix": "trycf",
+    "body": [
+      "try {",
+      "\t$0",
+      "} catch (error) {",
+      "\tconsole.error(error);",
+      "} finally {",
+      "\t",
+      "}"
+    ],
+    "description": "try...catch...finally"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  REGEX                                   ██
+  // ══════════════════════════════════════════════
+
+  "Regex test": {
+    "prefix": "regtest",
+    "body": "/${1:patron}/.test(${2:cadena})$0",
+    "description": "Probar regex"
+  },
+  "Regex match": {
+    "prefix": "regmatch",
+    "body": "${1:cadena}.match(/${2:patron}/g)$0",
+    "description": "Buscar con regex"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  DATE                                    ██
+  // ══════════════════════════════════════════════
+
+  "New Date": {
+    "prefix": "newdate",
+    "body": "const ${1:fecha} = new Date();$0",
+    "description": "Crear nueva fecha"
+  },
+  "Date formateada": {
+    "prefix": "dateformat",
+    "body": "new Date().toLocaleDateString(\"${1:es-ES}\", { year: \"numeric\", month: \"long\", day: \"numeric\" })$0",
+    "description": "Fecha formateada en español"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  PLANTILLA HTML CON SCRIPT               ██
+  // ══════════════════════════════════════════════
+
+  "HTML base con JS": {
+    "prefix": "htmljs",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Título}</title>",
+      "</head>",
+      "<body>",
+      "\t$2",
+      "\t<script>",
+      "\t\t$0",
+      "\t</script>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Plantilla HTML con script inline"
+  },
+  "HTML con formulario AJAX": {
+    "prefix": "htmlajax",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Formulario AJAX}</title>",
+      "</head>",
+      "<body>",
+      "\t<h1>${1:Formulario AJAX}</h1>",
+      "",
+      "\t<form id=\"miForm\">",
+      "\t\t<label for=\"nombre\">Nombre:</label>",
+      "\t\t<input type=\"text\" id=\"nombre\" name=\"nombre\" required><br><br>",
+      "",
+      "\t\t<label for=\"email\">Email:</label>",
+      "\t\t<input type=\"email\" id=\"email\" name=\"email\" required><br><br>",
+      "",
+      "\t\t<button type=\"submit\">Enviar</button>",
+      "\t</form>",
+      "",
+      "\t<div id=\"resultado\"></div>",
+      "",
+      "\t<script>",
+      "\t\tdocument.getElementById(\"miForm\").addEventListener(\"submit\", function(e) {",
+      "\t\t\te.preventDefault();",
+      "\t\t\tconst formData = new FormData(this);",
+      "",
+      "\t\t\tfetch(\"${2:procesar.php}\", {",
+      "\t\t\t\tmethod: \"POST\",",
+      "\t\t\t\tbody: formData",
+      "\t\t\t})",
+      "\t\t\t.then(response => response.json())",
+      "\t\t\t.then(data => {",
+      "\t\t\t\tdocument.getElementById(\"resultado\").innerHTML = data.mensaje;",
+      "\t\t\t})",
+      "\t\t\t.catch(error => {",
+      "\t\t\t\tdocument.getElementById(\"resultado\").innerHTML = \"Error: \" + error;",
+      "\t\t\t});",
+      "\t\t});",
+      "\t</script>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Página HTML completa con formulario AJAX"
+  }
+}

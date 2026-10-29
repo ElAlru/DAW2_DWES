@@ -1,0 +1,1172 @@
+{
+  // ══════════════════════════════════════════════
+  // ██  ESTRUCTURAS BASE HTML                  ██
+  // ══════════════════════════════════════════════
+
+  "HTML5 base": {
+    "prefix": "html5",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Título}</title>",
+      "</head>",
+      "<body>",
+      "\t$0",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Plantilla HTML5 básica en español"
+  },
+  "HTML5 con CSS": {
+    "prefix": "html5css",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Título}</title>",
+      "\t<link rel=\"stylesheet\" href=\"${2:styles.css}\">",
+      "</head>",
+      "<body>",
+      "\t$0",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Plantilla HTML5 con enlace a CSS externo"
+  },
+  "HTML5 con CSS y JS": {
+    "prefix": "html5full",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Título}</title>",
+      "\t<link rel=\"stylesheet\" href=\"${2:styles.css}\">",
+      "</head>",
+      "<body>",
+      "\t$3",
+      "\t<script src=\"${4:script.js}\"></script>",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Plantilla HTML5 completa con CSS y JS externos"
+  },
+  "HTML5 con style interno": {
+    "prefix": "html5style",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html lang=\"es\">",
+      "<head>",
+      "\t<meta charset=\"UTF-8\">",
+      "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "\t<title>${1:Título}</title>",
+      "\t<style>",
+      "\t\t$2",
+      "\t</style>",
+      "</head>",
+      "<body>",
+      "\t$0",
+      "</body>",
+      "</html>"
+    ],
+    "description": "Plantilla HTML5 con bloque <style> interno"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  META TAGS                               ██
+  // ══════════════════════════════════════════════
+
+  "Meta charset": {
+    "prefix": "metach",
+    "body": "<meta charset=\"${1:UTF-8}\">$0",
+    "description": "Meta charset"
+  },
+  "Meta viewport": {
+    "prefix": "metavp",
+    "body": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">$0",
+    "description": "Meta viewport responsive"
+  },
+  "Meta description": {
+    "prefix": "metadesc",
+    "body": "<meta name=\"description\" content=\"${1:Descripción de la página}\">$0",
+    "description": "Meta description para SEO"
+  },
+  "Meta author": {
+    "prefix": "metaaut",
+    "body": "<meta name=\"author\" content=\"${1:Nombre del autor}\">$0",
+    "description": "Meta author"
+  },
+  "Meta keywords": {
+    "prefix": "metakey",
+    "body": "<meta name=\"keywords\" content=\"${1:palabra1, palabra2, palabra3}\">$0",
+    "description": "Meta keywords"
+  },
+  "Meta refresh": {
+    "prefix": "metaref",
+    "body": "<meta http-equiv=\"refresh\" content=\"${1:5};url=${2:https://ejemplo.com}\">$0",
+    "description": "Meta refresh - redirige tras X segundos"
+  },
+  "Favicon link": {
+    "prefix": "favicon",
+    "body": "<link rel=\"icon\" type=\"image/x-icon\" href=\"${1:favicon.ico}\">$0",
+    "description": "Enlace al favicon"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ENLACES Y RECURSOS                     ██
+  // ══════════════════════════════════════════════
+
+  "Link CSS externo": {
+    "prefix": "linkcss",
+    "body": "<link rel=\"stylesheet\" href=\"${1:styles.css}\">$0",
+    "description": "Enlace a hoja de estilos CSS"
+  },
+  "Script externo": {
+    "prefix": "scriptsrc",
+    "body": "<script src=\"${1:script.js}\"></script>$0",
+    "description": "Script externo"
+  },
+  "Script inline": {
+    "prefix": "scriptinl",
+    "body": [
+      "<script>",
+      "\t$0",
+      "</script>"
+    ],
+    "description": "Bloque script inline"
+  },
+  "Style inline": {
+    "prefix": "styleinl",
+    "body": [
+      "<style>",
+      "\t$0",
+      "</style>"
+    ],
+    "description": "Bloque style inline"
+  },
+  "Enlace a": {
+    "prefix": "aa",
+    "body": "<a href=\"${1:#}\"${2: target=\"_blank\"}>${3:Texto del enlace}</a>$0",
+    "description": "Etiqueta <a> con href"
+  },
+  "Enlace email": {
+    "prefix": "amail",
+    "body": "<a href=\"mailto:${1:email@ejemplo.com}\">${2:Enviar correo}</a>$0",
+    "description": "Enlace mailto"
+  },
+  "Enlace teléfono": {
+    "prefix": "atel",
+    "body": "<a href=\"tel:${1:+34600000000}\">${2:Llamar}</a>$0",
+    "description": "Enlace tel:"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ENCABEZADOS Y TEXTO                    ██
+  // ══════════════════════════════════════════════
+
+  "Heading h1": {
+    "prefix": "h1",
+    "body": "<h1>${1:Título}</h1>$0",
+    "description": "Encabezado h1"
+  },
+  "Heading h2": {
+    "prefix": "h2",
+    "body": "<h2>${1:Subtítulo}</h2>$0",
+    "description": "Encabezado h2"
+  },
+  "Heading h3": {
+    "prefix": "h3",
+    "body": "<h3>${1:Subtítulo}</h3>$0",
+    "description": "Encabezado h3"
+  },
+  "Párrafo": {
+    "prefix": "pp",
+    "body": "<p>${1:Texto del párrafo}</p>$0",
+    "description": "Párrafo <p>"
+  },
+  "Span": {
+    "prefix": "sp",
+    "body": "<span${1: class=\"${2:clase}\"}>${3:texto}</span>$0",
+    "description": "Etiqueta <span>"
+  },
+  "Strong (negrita)": {
+    "prefix": "str",
+    "body": "<strong>${1:texto en negrita}</strong>$0",
+    "description": "Texto en negrita semántico"
+  },
+  "Em (cursiva)": {
+    "prefix": "em",
+    "body": "<em>${1:texto en cursiva}</em>$0",
+    "description": "Texto en cursiva semántico"
+  },
+  "Mark (resaltado)": {
+    "prefix": "mark",
+    "body": "<mark>${1:texto resaltado}</mark>$0",
+    "description": "Texto resaltado"
+  },
+  "Small": {
+    "prefix": "sm",
+    "body": "<small>${1:texto pequeño}</small>$0",
+    "description": "Texto pequeño"
+  },
+  "Blockquote": {
+    "prefix": "bq",
+    "body": [
+      "<blockquote>",
+      "\t<p>${1:Cita}</p>",
+      "\t<cite>${2:Autor}</cite>",
+      "</blockquote>$0"
+    ],
+    "description": "Cita con blockquote"
+  },
+  "Pre + Code": {
+    "prefix": "precode",
+    "body": [
+      "<pre><code>",
+      "${1:código}",
+      "</code></pre>$0"
+    ],
+    "description": "Bloque de código preformateado"
+  },
+  "Abbr": {
+    "prefix": "abbr",
+    "body": "<abbr title=\"${1:significado completo}\">${2:ABREVIATURA}</abbr>$0",
+    "description": "Abreviatura con title"
+  },
+  "Br y Hr": {
+    "prefix": "br",
+    "body": "<br>$0",
+    "description": "Salto de línea"
+  },
+  "Línea horizontal": {
+    "prefix": "hr",
+    "body": "<hr>$0",
+    "description": "Línea horizontal <hr>"
+  },
+  "Sub (subíndice)": {
+    "prefix": "sub",
+    "body": "<sub>${1:subíndice}</sub>$0",
+    "description": "Texto en subíndice"
+  },
+  "Sup (superíndice)": {
+    "prefix": "sup",
+    "body": "<sup>${1:superíndice}</sup>$0",
+    "description": "Texto en superíndice"
+  },
+  "Del (tachado)": {
+    "prefix": "del",
+    "body": "<del>${1:texto eliminado}</del>$0",
+    "description": "Texto tachado/eliminado"
+  },
+  "Ins (insertado)": {
+    "prefix": "ins",
+    "body": "<ins>${1:texto insertado}</ins>$0",
+    "description": "Texto insertado"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  DIV Y CONTENEDORES                     ██
+  // ══════════════════════════════════════════════
+
+  "Div con clase": {
+    "prefix": "divc",
+    "body": [
+      "<div class=\"${1:clase}\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "Div con clase"
+  },
+  "Div con id": {
+    "prefix": "divid",
+    "body": [
+      "<div id=\"${1:identificador}\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "Div con id"
+  },
+  "Div con id y clase": {
+    "prefix": "divic",
+    "body": [
+      "<div id=\"${1:id}\" class=\"${2:clase}\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "Div con id y clase"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ESTRUCTURA SEMÁNTICA HTML5             ██
+  // ══════════════════════════════════════════════
+
+  "Header": {
+    "prefix": "header",
+    "body": [
+      "<header>",
+      "\t$0",
+      "</header>"
+    ],
+    "description": "Cabecera semántica <header>"
+  },
+  "Nav": {
+    "prefix": "nav",
+    "body": [
+      "<nav>",
+      "\t$0",
+      "</nav>"
+    ],
+    "description": "Navegación semántica <nav>"
+  },
+  "Nav con lista": {
+    "prefix": "navul",
+    "body": [
+      "<nav>",
+      "\t<ul>",
+      "\t\t<li><a href=\"${1:#}\">${2:Inicio}</a></li>",
+      "\t\t<li><a href=\"${3:#}\">${4:Acerca}</a></li>",
+      "\t\t<li><a href=\"${5:#}\">${6:Contacto}</a></li>",
+      "\t\t$0",
+      "\t</ul>",
+      "</nav>"
+    ],
+    "description": "Nav con menú de enlaces"
+  },
+  "Main": {
+    "prefix": "main",
+    "body": [
+      "<main>",
+      "\t$0",
+      "</main>"
+    ],
+    "description": "Contenido principal <main>"
+  },
+  "Section": {
+    "prefix": "section",
+    "body": [
+      "<section>",
+      "\t<h2>${1:Título de sección}</h2>",
+      "\t$0",
+      "</section>"
+    ],
+    "description": "Sección semántica <section>"
+  },
+  "Article": {
+    "prefix": "article",
+    "body": [
+      "<article>",
+      "\t<h2>${1:Título del artículo}</h2>",
+      "\t$0",
+      "</article>"
+    ],
+    "description": "Artículo semántico <article>"
+  },
+  "Aside": {
+    "prefix": "aside",
+    "body": [
+      "<aside>",
+      "\t$0",
+      "</aside>"
+    ],
+    "description": "Barra lateral semántica <aside>"
+  },
+  "Footer": {
+    "prefix": "footer",
+    "body": [
+      "<footer>",
+      "\t<p>&copy; ${1:2024} ${2:Mi Sitio}. Todos los derechos reservados.</p>",
+      "\t$0",
+      "</footer>"
+    ],
+    "description": "Pie de página semántico <footer>"
+  },
+  "Estructura semántica completa": {
+    "prefix": "semantica",
+    "body": [
+      "<header>",
+      "\t<h1>${1:Mi Sitio Web}</h1>",
+      "\t<nav>",
+      "\t\t<ul>",
+      "\t\t\t<li><a href=\"#\">${2:Inicio}</a></li>",
+      "\t\t\t<li><a href=\"#\">${3:Acerca}</a></li>",
+      "\t\t\t<li><a href=\"#\">${4:Contacto}</a></li>",
+      "\t\t</ul>",
+      "\t</nav>",
+      "</header>",
+      "",
+      "<main>",
+      "\t<section>",
+      "\t\t<h2>${5:Sección principal}</h2>",
+      "\t\t$0",
+      "\t</section>",
+      "",
+      "\t<aside>",
+      "\t\t<h3>${6:Barra lateral}</h3>",
+      "\t</aside>",
+      "</main>",
+      "",
+      "<footer>",
+      "\t<p>&copy; ${7:2024} ${1:Mi Sitio Web}</p>",
+      "</footer>"
+    ],
+    "description": "Estructura semántica completa: header, nav, main, section, aside, footer"
+  },
+  "Details/Summary": {
+    "prefix": "details",
+    "body": [
+      "<details>",
+      "\t<summary>${1:Haz clic para ver más}</summary>",
+      "\t<p>${2:Contenido oculto}</p>",
+      "</details>$0"
+    ],
+    "description": "Elemento desplegable details/summary"
+  },
+  "Figure con figcaption": {
+    "prefix": "figure",
+    "body": [
+      "<figure>",
+      "\t<img src=\"${1:imagen.jpg}\" alt=\"${2:descripción}\">",
+      "\t<figcaption>${3:Pie de imagen}</figcaption>",
+      "</figure>$0"
+    ],
+    "description": "Figura con pie de imagen"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  LISTAS                                  ██
+  // ══════════════════════════════════════════════
+
+  "Lista desordenada": {
+    "prefix": "ul",
+    "body": [
+      "<ul>",
+      "\t<li>${1:Elemento 1}</li>",
+      "\t<li>${2:Elemento 2}</li>",
+      "\t<li>${3:Elemento 3}</li>",
+      "\t$0",
+      "</ul>"
+    ],
+    "description": "Lista desordenada <ul>"
+  },
+  "Lista ordenada": {
+    "prefix": "ol",
+    "body": [
+      "<ol>",
+      "\t<li>${1:Elemento 1}</li>",
+      "\t<li>${2:Elemento 2}</li>",
+      "\t<li>${3:Elemento 3}</li>",
+      "\t$0",
+      "</ol>"
+    ],
+    "description": "Lista ordenada <ol>"
+  },
+  "Lista item": {
+    "prefix": "li",
+    "body": "<li>${1:Elemento}</li>$0",
+    "description": "Elemento de lista <li>"
+  },
+  "Lista de definición": {
+    "prefix": "dl",
+    "body": [
+      "<dl>",
+      "\t<dt>${1:Término}</dt>",
+      "\t<dd>${2:Definición}</dd>",
+      "\t$0",
+      "</dl>"
+    ],
+    "description": "Lista de definición <dl>"
+  },
+  "Lista anidada": {
+    "prefix": "ulanid",
+    "body": [
+      "<ul>",
+      "\t<li>${1:Elemento 1}",
+      "\t\t<ul>",
+      "\t\t\t<li>${2:Sub-elemento 1}</li>",
+      "\t\t\t<li>${3:Sub-elemento 2}</li>",
+      "\t\t</ul>",
+      "\t</li>",
+      "\t<li>${4:Elemento 2}</li>",
+      "\t$0",
+      "</ul>"
+    ],
+    "description": "Lista anidada"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TABLAS                                  ██
+  // ══════════════════════════════════════════════
+
+  "Tabla básica": {
+    "prefix": "table",
+    "body": [
+      "<table>",
+      "\t<thead>",
+      "\t\t<tr>",
+      "\t\t\t<th>${1:Cabecera 1}</th>",
+      "\t\t\t<th>${2:Cabecera 2}</th>",
+      "\t\t\t<th>${3:Cabecera 3}</th>",
+      "\t\t</tr>",
+      "\t</thead>",
+      "\t<tbody>",
+      "\t\t<tr>",
+      "\t\t\t<td>${4:Dato 1}</td>",
+      "\t\t\t<td>${5:Dato 2}</td>",
+      "\t\t\t<td>${6:Dato 3}</td>",
+      "\t\t</tr>",
+      "\t\t$0",
+      "\t</tbody>",
+      "</table>"
+    ],
+    "description": "Tabla con thead y tbody"
+  },
+  "Tabla completa": {
+    "prefix": "tablefull",
+    "body": [
+      "<table>",
+      "\t<caption>${1:Título de la tabla}</caption>",
+      "\t<thead>",
+      "\t\t<tr>",
+      "\t\t\t<th>${2:Cabecera 1}</th>",
+      "\t\t\t<th>${3:Cabecera 2}</th>",
+      "\t\t\t<th>${4:Cabecera 3}</th>",
+      "\t\t</tr>",
+      "\t</thead>",
+      "\t<tbody>",
+      "\t\t<tr>",
+      "\t\t\t<td>${5:Dato 1}</td>",
+      "\t\t\t<td>${6:Dato 2}</td>",
+      "\t\t\t<td>${7:Dato 3}</td>",
+      "\t\t</tr>",
+      "\t</tbody>",
+      "\t<tfoot>",
+      "\t\t<tr>",
+      "\t\t\t<td colspan=\"3\">${8:Pie de tabla}</td>",
+      "\t\t</tr>",
+      "\t</tfoot>",
+      "</table>$0"
+    ],
+    "description": "Tabla completa con caption, thead, tbody y tfoot"
+  },
+  "Fila de tabla": {
+    "prefix": "tr",
+    "body": [
+      "<tr>",
+      "\t<td>${1:Dato 1}</td>",
+      "\t<td>${2:Dato 2}</td>",
+      "\t<td>${3:Dato 3}</td>",
+      "</tr>$0"
+    ],
+    "description": "Fila de tabla <tr>"
+  },
+  "Celda con colspan": {
+    "prefix": "tdcol",
+    "body": "<td colspan=\"${1:2}\">${2:Dato}</td>$0",
+    "description": "Celda con colspan"
+  },
+  "Celda con rowspan": {
+    "prefix": "tdrow",
+    "body": "<td rowspan=\"${1:2}\">${2:Dato}</td>$0",
+    "description": "Celda con rowspan"
+  },
+  "Colgroup": {
+    "prefix": "colgroup",
+    "body": [
+      "<colgroup>",
+      "\t<col style=\"${1:background-color: #f0f0f0}\">",
+      "\t<col style=\"${2:background-color: #ffffff}\">",
+      "\t$0",
+      "</colgroup>"
+    ],
+    "description": "Grupo de columnas colgroup"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FORMULARIOS - ESTRUCTURA               ██
+  // ══════════════════════════════════════════════
+
+  "Formulario GET": {
+    "prefix": "formget",
+    "body": [
+      "<form action=\"${1:pagina.php}\" method=\"GET\">",
+      "\t$0",
+      "\t<input type=\"submit\" value=\"${2:Enviar}\">",
+      "</form>"
+    ],
+    "description": "Formulario con método GET"
+  },
+  "Formulario POST": {
+    "prefix": "formpost",
+    "body": [
+      "<form action=\"${1:pagina.php}\" method=\"POST\">",
+      "\t$0",
+      "\t<input type=\"submit\" value=\"${2:Enviar}\">",
+      "</form>"
+    ],
+    "description": "Formulario con método POST"
+  },
+  "Formulario con archivo": {
+    "prefix": "formfile",
+    "body": [
+      "<form action=\"${1:upload.php}\" method=\"POST\" enctype=\"multipart/form-data\">",
+      "\t<label for=\"archivo\">Seleccionar archivo:</label>",
+      "\t<input type=\"file\" id=\"archivo\" name=\"archivo\" accept=\"${2:image/*}\">",
+      "\t$0",
+      "\t<input type=\"submit\" value=\"${3:Subir}\">",
+      "</form>"
+    ],
+    "description": "Formulario para subir archivos (multipart)"
+  },
+  "Fieldset con legend": {
+    "prefix": "fieldset",
+    "body": [
+      "<fieldset>",
+      "\t<legend>${1:Título del grupo}</legend>",
+      "\t$0",
+      "</fieldset>"
+    ],
+    "description": "Fieldset con legend para agrupar campos"
+  },
+  "Label + input genérico": {
+    "prefix": "labinp",
+    "body": [
+      "<label for=\"${1:campo}\">${2:Etiqueta}:</label>",
+      "<input type=\"${3:text}\" id=\"${1:campo}\" name=\"${1:campo}\"${4: required}>$0"
+    ],
+    "description": "Label + input genérico"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FORMULARIOS - TODOS LOS TIPOS DE INPUT ██
+  // ══════════════════════════════════════════════
+
+  "Input text": {
+    "prefix": "intext",
+    "body": [
+      "<label for=\"${1:nombre}\">${2:Nombre}:</label>",
+      "<input type=\"text\" id=\"${1:nombre}\" name=\"${1:nombre}\" placeholder=\"${3:Escribe aquí...}\"${4: required}>$0"
+    ],
+    "description": "Input type text con label"
+  },
+  "Input password": {
+    "prefix": "inpass",
+    "body": [
+      "<label for=\"${1:password}\">${2:Contraseña}:</label>",
+      "<input type=\"password\" id=\"${1:password}\" name=\"${1:password}\" minlength=\"${3:6}\"${4: required}>$0"
+    ],
+    "description": "Input type password con label"
+  },
+  "Input email": {
+    "prefix": "inemail",
+    "body": [
+      "<label for=\"${1:email}\">${2:Email}:</label>",
+      "<input type=\"email\" id=\"${1:email}\" name=\"${1:email}\" placeholder=\"${3:usuario@ejemplo.com}\"${4: required}>$0"
+    ],
+    "description": "Input type email con label"
+  },
+  "Input number": {
+    "prefix": "innum",
+    "body": [
+      "<label for=\"${1:cantidad}\">${2:Cantidad}:</label>",
+      "<input type=\"number\" id=\"${1:cantidad}\" name=\"${1:cantidad}\" min=\"${3:0}\" max=\"${4:100}\" step=\"${5:1}\">$0"
+    ],
+    "description": "Input type number con min/max/step"
+  },
+  "Input tel": {
+    "prefix": "intel",
+    "body": [
+      "<label for=\"${1:telefono}\">${2:Teléfono}:</label>",
+      "<input type=\"tel\" id=\"${1:telefono}\" name=\"${1:telefono}\" pattern=\"${3:[0-9]{9}}\" placeholder=\"${4:600123456}\">$0"
+    ],
+    "description": "Input type tel con pattern"
+  },
+  "Input url": {
+    "prefix": "inurl",
+    "body": [
+      "<label for=\"${1:web}\">${2:Página web}:</label>",
+      "<input type=\"url\" id=\"${1:web}\" name=\"${1:web}\" placeholder=\"${3:https://ejemplo.com}\">$0"
+    ],
+    "description": "Input type url"
+  },
+  "Input date": {
+    "prefix": "indate",
+    "body": [
+      "<label for=\"${1:fecha}\">${2:Fecha}:</label>",
+      "<input type=\"date\" id=\"${1:fecha}\" name=\"${1:fecha}\">$0"
+    ],
+    "description": "Input type date"
+  },
+  "Input datetime-local": {
+    "prefix": "indatetime",
+    "body": [
+      "<label for=\"${1:fechahora}\">${2:Fecha y hora}:</label>",
+      "<input type=\"datetime-local\" id=\"${1:fechahora}\" name=\"${1:fechahora}\">$0"
+    ],
+    "description": "Input type datetime-local"
+  },
+  "Input time": {
+    "prefix": "intime",
+    "body": [
+      "<label for=\"${1:hora}\">${2:Hora}:</label>",
+      "<input type=\"time\" id=\"${1:hora}\" name=\"${1:hora}\">$0"
+    ],
+    "description": "Input type time"
+  },
+  "Input month": {
+    "prefix": "inmonth",
+    "body": [
+      "<label for=\"${1:mes}\">${2:Mes}:</label>",
+      "<input type=\"month\" id=\"${1:mes}\" name=\"${1:mes}\">$0"
+    ],
+    "description": "Input type month"
+  },
+  "Input week": {
+    "prefix": "inweek",
+    "body": [
+      "<label for=\"${1:semana}\">${2:Semana}:</label>",
+      "<input type=\"week\" id=\"${1:semana}\" name=\"${1:semana}\">$0"
+    ],
+    "description": "Input type week"
+  },
+  "Input color": {
+    "prefix": "incolor",
+    "body": [
+      "<label for=\"${1:color}\">${2:Color favorito}:</label>",
+      "<input type=\"color\" id=\"${1:color}\" name=\"${1:color}\" value=\"${3:#ff0000}\">$0"
+    ],
+    "description": "Input type color"
+  },
+  "Input range": {
+    "prefix": "inrange",
+    "body": [
+      "<label for=\"${1:rango}\">${2:Rango}: <output id=\"${1:rango}Val\"></output></label>",
+      "<input type=\"range\" id=\"${1:rango}\" name=\"${1:rango}\" min=\"${3:0}\" max=\"${4:100}\" value=\"${5:50}\" oninput=\"${1:rango}Val.value=this.value\">$0"
+    ],
+    "description": "Input type range con output dinámico"
+  },
+  "Input file": {
+    "prefix": "infile",
+    "body": [
+      "<label for=\"${1:archivo}\">${2:Seleccionar archivo}:</label>",
+      "<input type=\"file\" id=\"${1:archivo}\" name=\"${1:archivo}\" accept=\"${3:image/*,.pdf}\">$0"
+    ],
+    "description": "Input type file con accept"
+  },
+  "Input file múltiple": {
+    "prefix": "infilem",
+    "body": [
+      "<label for=\"${1:archivos}\">${2:Seleccionar archivos}:</label>",
+      "<input type=\"file\" id=\"${1:archivos}\" name=\"${1:archivos}[]\" accept=\"${3:image/*}\" multiple>$0"
+    ],
+    "description": "Input type file múltiple"
+  },
+  "Input hidden": {
+    "prefix": "inhidden",
+    "body": "<input type=\"hidden\" name=\"${1:campo}\" value=\"${2:valor}\">$0",
+    "description": "Input type hidden"
+  },
+  "Input checkbox": {
+    "prefix": "incheck",
+    "body": [
+      "<label>",
+      "\t<input type=\"checkbox\" name=\"${1:opcion}\" value=\"${2:valor}\"${3: checked}>",
+      "\t${4:Texto de la opción}",
+      "</label>$0"
+    ],
+    "description": "Input type checkbox con label"
+  },
+  "Grupo de checkboxes": {
+    "prefix": "incheckgroup",
+    "body": [
+      "<fieldset>",
+      "\t<legend>${1:Selecciona opciones}:</legend>",
+      "\t<label><input type=\"checkbox\" name=\"${2:opciones}[]\" value=\"${3:opcion1}\"> ${4:Opción 1}</label><br>",
+      "\t<label><input type=\"checkbox\" name=\"${2:opciones}[]\" value=\"${5:opcion2}\"> ${6:Opción 2}</label><br>",
+      "\t<label><input type=\"checkbox\" name=\"${2:opciones}[]\" value=\"${7:opcion3}\"> ${8:Opción 3}</label>",
+      "</fieldset>$0"
+    ],
+    "description": "Grupo de checkboxes con fieldset"
+  },
+  "Input radio": {
+    "prefix": "inradio",
+    "body": [
+      "<label>",
+      "\t<input type=\"radio\" name=\"${1:grupo}\" value=\"${2:valor}\"${3: checked}>",
+      "\t${4:Texto de la opción}",
+      "</label>$0"
+    ],
+    "description": "Input type radio con label"
+  },
+  "Grupo de radios": {
+    "prefix": "inradiogroup",
+    "body": [
+      "<fieldset>",
+      "\t<legend>${1:Selecciona una opción}:</legend>",
+      "\t<label><input type=\"radio\" name=\"${2:grupo}\" value=\"${3:opcion1}\" checked> ${4:Opción 1}</label><br>",
+      "\t<label><input type=\"radio\" name=\"${2:grupo}\" value=\"${5:opcion2}\"> ${6:Opción 2}</label><br>",
+      "\t<label><input type=\"radio\" name=\"${2:grupo}\" value=\"${7:opcion3}\"> ${8:Opción 3}</label>",
+      "</fieldset>$0"
+    ],
+    "description": "Grupo de radio buttons con fieldset"
+  },
+  "Input search": {
+    "prefix": "insearch",
+    "body": [
+      "<label for=\"${1:busqueda}\">${2:Buscar}:</label>",
+      "<input type=\"search\" id=\"${1:busqueda}\" name=\"${1:busqueda}\" placeholder=\"${3:Buscar...}\">$0"
+    ],
+    "description": "Input type search"
+  },
+  "Textarea": {
+    "prefix": "textarea",
+    "body": [
+      "<label for=\"${1:mensaje}\">${2:Mensaje}:</label>",
+      "<textarea id=\"${1:mensaje}\" name=\"${1:mensaje}\" rows=\"${3:5}\" cols=\"${4:40}\" placeholder=\"${5:Escribe tu mensaje...}\">${6}</textarea>$0"
+    ],
+    "description": "Textarea con label"
+  },
+  "Select (desplegable)": {
+    "prefix": "select",
+    "body": [
+      "<label for=\"${1:opciones}\">${2:Elige una opción}:</label>",
+      "<select id=\"${1:opciones}\" name=\"${1:opciones}\">",
+      "\t<option value=\"\" disabled selected>-- Selecciona --</option>",
+      "\t<option value=\"${3:valor1}\">${4:Opción 1}</option>",
+      "\t<option value=\"${5:valor2}\">${6:Opción 2}</option>",
+      "\t<option value=\"${7:valor3}\">${8:Opción 3}</option>",
+      "\t$0",
+      "</select>"
+    ],
+    "description": "Select desplegable con opciones"
+  },
+  "Select con optgroup": {
+    "prefix": "selectgroup",
+    "body": [
+      "<label for=\"${1:categorias}\">${2:Categoría}:</label>",
+      "<select id=\"${1:categorias}\" name=\"${1:categorias}\">",
+      "\t<option value=\"\" disabled selected>-- Selecciona --</option>",
+      "\t<optgroup label=\"${3:Grupo 1}\">",
+      "\t\t<option value=\"${4:val1}\">${5:Opción 1}</option>",
+      "\t\t<option value=\"${6:val2}\">${7:Opción 2}</option>",
+      "\t</optgroup>",
+      "\t<optgroup label=\"${8:Grupo 2}\">",
+      "\t\t<option value=\"${9:val3}\">${10:Opción 3}</option>",
+      "\t\t<option value=\"${11:val4}\">${12:Opción 4}</option>",
+      "\t</optgroup>",
+      "</select>$0"
+    ],
+    "description": "Select con grupos de opciones (optgroup)"
+  },
+  "Select múltiple": {
+    "prefix": "selectmulti",
+    "body": [
+      "<label for=\"${1:multi}\">${2:Selección múltiple}:</label>",
+      "<select id=\"${1:multi}\" name=\"${1:multi}[]\" multiple size=\"${3:4}\">",
+      "\t<option value=\"${4:valor1}\">${5:Opción 1}</option>",
+      "\t<option value=\"${6:valor2}\">${7:Opción 2}</option>",
+      "\t<option value=\"${8:valor3}\">${9:Opción 3}</option>",
+      "\t$0",
+      "</select>"
+    ],
+    "description": "Select múltiple"
+  },
+  "Datalist (autocompletar)": {
+    "prefix": "datalist",
+    "body": [
+      "<label for=\"${1:navegador}\">${2:Elige tu navegador}:</label>",
+      "<input list=\"${1:navegador}List\" id=\"${1:navegador}\" name=\"${1:navegador}\" placeholder=\"${3:Escribe para buscar...}\">",
+      "<datalist id=\"${1:navegador}List\">",
+      "\t<option value=\"${4:Chrome}\">",
+      "\t<option value=\"${5:Firefox}\">",
+      "\t<option value=\"${6:Safari}\">",
+      "\t<option value=\"${7:Edge}\">",
+      "\t$0",
+      "</datalist>"
+    ],
+    "description": "Input con datalist para autocompletar"
+  },
+  "Botón submit": {
+    "prefix": "btnsub",
+    "body": "<input type=\"submit\" value=\"${1:Enviar}\">$0",
+    "description": "Botón submit"
+  },
+  "Botón reset": {
+    "prefix": "btnreset",
+    "body": "<input type=\"reset\" value=\"${1:Limpiar}\">$0",
+    "description": "Botón reset"
+  },
+  "Button": {
+    "prefix": "btn",
+    "body": "<button type=\"${1|submit,button,reset|}\"${2: id=\"${3:miBoton}\"}>${4:Texto del botón}</button>$0",
+    "description": "Botón <button>"
+  },
+  "Output": {
+    "prefix": "output",
+    "body": "<output name=\"${1:resultado}\" for=\"${2:campo1 campo2}\">${3}</output>$0",
+    "description": "Etiqueta output para resultados de cálculos"
+  },
+  "Progress": {
+    "prefix": "progress",
+    "body": "<label for=\"${1:progreso}\">${2:Progreso}:</label>\n<progress id=\"${1:progreso}\" value=\"${3:50}\" max=\"${4:100}\">${3:50}%</progress>$0",
+    "description": "Barra de progreso"
+  },
+  "Meter": {
+    "prefix": "meter",
+    "body": "<label for=\"${1:medida}\">${2:Nivel}:</label>\n<meter id=\"${1:medida}\" value=\"${3:0.6}\" min=\"0\" max=\"1\" low=\"0.3\" high=\"0.7\" optimum=\"0.8\">${4:60%}</meter>$0",
+    "description": "Medidor (meter) con rangos"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FORMULARIOS COMPLETOS                   ██
+  // ══════════════════════════════════════════════
+
+  "Formulario de registro completo": {
+    "prefix": "formregistro",
+    "body": [
+      "<form action=\"${1:registro.php}\" method=\"POST\">",
+      "\t<fieldset>",
+      "\t\t<legend>Datos personales</legend>",
+      "",
+      "\t\t<label for=\"nombre\">Nombre:</label>",
+      "\t\t<input type=\"text\" id=\"nombre\" name=\"nombre\" required><br><br>",
+      "",
+      "\t\t<label for=\"apellidos\">Apellidos:</label>",
+      "\t\t<input type=\"text\" id=\"apellidos\" name=\"apellidos\" required><br><br>",
+      "",
+      "\t\t<label for=\"email\">Email:</label>",
+      "\t\t<input type=\"email\" id=\"email\" name=\"email\" required><br><br>",
+      "",
+      "\t\t<label for=\"password\">Contraseña:</label>",
+      "\t\t<input type=\"password\" id=\"password\" name=\"password\" minlength=\"6\" required><br><br>",
+      "",
+      "\t\t<label for=\"fechaNac\">Fecha de nacimiento:</label>",
+      "\t\t<input type=\"date\" id=\"fechaNac\" name=\"fechaNac\"><br><br>",
+      "",
+      "\t\t<label for=\"telefono\">Teléfono:</label>",
+      "\t\t<input type=\"tel\" id=\"telefono\" name=\"telefono\" pattern=\"[0-9]{9}\"><br><br>",
+      "\t</fieldset>",
+      "",
+      "\t<fieldset>",
+      "\t\t<legend>Preferencias</legend>",
+      "",
+      "\t\t<label>Género:</label><br>",
+      "\t\t<label><input type=\"radio\" name=\"genero\" value=\"masculino\"> Masculino</label>",
+      "\t\t<label><input type=\"radio\" name=\"genero\" value=\"femenino\"> Femenino</label>",
+      "\t\t<label><input type=\"radio\" name=\"genero\" value=\"otro\"> Otro</label><br><br>",
+      "",
+      "\t\t<label for=\"pais\">País:</label>",
+      "\t\t<select id=\"pais\" name=\"pais\">",
+      "\t\t\t<option value=\"\" disabled selected>-- Selecciona --</option>",
+      "\t\t\t<option value=\"es\">España</option>",
+      "\t\t\t<option value=\"mx\">México</option>",
+      "\t\t\t<option value=\"ar\">Argentina</option>",
+      "\t\t\t<option value=\"co\">Colombia</option>",
+      "\t\t</select><br><br>",
+      "",
+      "\t\t<label>Intereses:</label><br>",
+      "\t\t<label><input type=\"checkbox\" name=\"intereses[]\" value=\"deportes\"> Deportes</label>",
+      "\t\t<label><input type=\"checkbox\" name=\"intereses[]\" value=\"musica\"> Música</label>",
+      "\t\t<label><input type=\"checkbox\" name=\"intereses[]\" value=\"tecnologia\"> Tecnología</label><br><br>",
+      "",
+      "\t\t<label for=\"bio\">Biografía:</label><br>",
+      "\t\t<textarea id=\"bio\" name=\"bio\" rows=\"4\" cols=\"40\" placeholder=\"Cuéntanos sobre ti...\"></textarea><br><br>",
+      "\t</fieldset>",
+      "",
+      "\t<label><input type=\"checkbox\" name=\"terminos\" required> Acepto los términos y condiciones</label><br><br>",
+      "",
+      "\t<input type=\"submit\" value=\"Registrarse\">",
+      "\t<input type=\"reset\" value=\"Limpiar\">",
+      "</form>$0"
+    ],
+    "description": "Formulario de registro completo con todos los tipos de input"
+  },
+  "Formulario de contacto": {
+    "prefix": "formcontacto",
+    "body": [
+      "<form action=\"${1:contacto.php}\" method=\"POST\">",
+      "\t<label for=\"nombre\">Nombre:</label>",
+      "\t<input type=\"text\" id=\"nombre\" name=\"nombre\" required><br><br>",
+      "",
+      "\t<label for=\"email\">Email:</label>",
+      "\t<input type=\"email\" id=\"email\" name=\"email\" required><br><br>",
+      "",
+      "\t<label for=\"asunto\">Asunto:</label>",
+      "\t<input type=\"text\" id=\"asunto\" name=\"asunto\"><br><br>",
+      "",
+      "\t<label for=\"mensaje\">Mensaje:</label><br>",
+      "\t<textarea id=\"mensaje\" name=\"mensaje\" rows=\"6\" cols=\"40\" required></textarea><br><br>",
+      "",
+      "\t<input type=\"submit\" value=\"Enviar mensaje\">",
+      "</form>$0"
+    ],
+    "description": "Formulario de contacto"
+  },
+  "Formulario de login": {
+    "prefix": "formlogin",
+    "body": [
+      "<form action=\"${1:login.php}\" method=\"POST\">",
+      "\t<label for=\"usuario\">Usuario o Email:</label>",
+      "\t<input type=\"text\" id=\"usuario\" name=\"usuario\" required><br><br>",
+      "",
+      "\t<label for=\"password\">Contraseña:</label>",
+      "\t<input type=\"password\" id=\"password\" name=\"password\" required><br><br>",
+      "",
+      "\t<label><input type=\"checkbox\" name=\"recordar\"> Recordarme</label><br><br>",
+      "",
+      "\t<input type=\"submit\" value=\"Iniciar sesión\">",
+      "</form>$0"
+    ],
+    "description": "Formulario de login"
+  },
+  "Formulario de búsqueda": {
+    "prefix": "formsearch",
+    "body": [
+      "<form action=\"${1:buscar.php}\" method=\"GET\" role=\"search\">",
+      "\t<label for=\"q\">Buscar:</label>",
+      "\t<input type=\"search\" id=\"q\" name=\"q\" placeholder=\"Buscar...\" required>",
+      "\t<button type=\"submit\">🔍 Buscar</button>",
+      "</form>$0"
+    ],
+    "description": "Formulario de búsqueda"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  MULTIMEDIA                              ██
+  // ══════════════════════════════════════════════
+
+  "Imagen": {
+    "prefix": "img",
+    "body": "<img src=\"${1:imagen.jpg}\" alt=\"${2:descripción}\"${3: width=\"${4:300}\"}${5: height=\"${6:200}\"}>$0",
+    "description": "Etiqueta <img>"
+  },
+  "Imagen responsive": {
+    "prefix": "imgr",
+    "body": "<img src=\"${1:imagen.jpg}\" alt=\"${2:descripción}\" style=\"max-width: 100%; height: auto;\">$0",
+    "description": "Imagen responsive"
+  },
+  "Picture (responsive)": {
+    "prefix": "picture",
+    "body": [
+      "<picture>",
+      "\t<source media=\"(min-width: 768px)\" srcset=\"${1:imagen-grande.jpg}\">",
+      "\t<source media=\"(min-width: 480px)\" srcset=\"${2:imagen-mediana.jpg}\">",
+      "\t<img src=\"${3:imagen-pequeña.jpg}\" alt=\"${4:descripción}\">",
+      "</picture>$0"
+    ],
+    "description": "Elemento picture para imágenes responsive"
+  },
+  "Video": {
+    "prefix": "video",
+    "body": [
+      "<video width=\"${1:640}\" height=\"${2:360}\" controls${3: autoplay}${4: muted}${5: loop}>",
+      "\t<source src=\"${6:video.mp4}\" type=\"video/mp4\">",
+      "\t<source src=\"${7:video.webm}\" type=\"video/webm\">",
+      "\tTu navegador no soporta el elemento video.",
+      "</video>$0"
+    ],
+    "description": "Reproductor de video HTML5"
+  },
+  "Audio": {
+    "prefix": "audio",
+    "body": [
+      "<audio controls${1: autoplay}${2: loop}>",
+      "\t<source src=\"${3:audio.mp3}\" type=\"audio/mpeg\">",
+      "\t<source src=\"${4:audio.ogg}\" type=\"audio/ogg\">",
+      "\tTu navegador no soporta el elemento audio.",
+      "</audio>$0"
+    ],
+    "description": "Reproductor de audio HTML5"
+  },
+  "Iframe": {
+    "prefix": "iframe",
+    "body": "<iframe src=\"${1:https://ejemplo.com}\" width=\"${2:600}\" height=\"${3:400}\" frameborder=\"0\" allowfullscreen title=\"${4:Contenido embebido}\"></iframe>$0",
+    "description": "Iframe embebido"
+  },
+  "Iframe YouTube": {
+    "prefix": "youtube",
+    "body": "<iframe width=\"${1:560}\" height=\"${2:315}\" src=\"https://www.youtube.com/embed/${3:VIDEO_ID}\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen title=\"${4:Video de YouTube}\"></iframe>$0",
+    "description": "Video de YouTube embebido"
+  },
+  "Canvas": {
+    "prefix": "canvas",
+    "body": "<canvas id=\"${1:miCanvas}\" width=\"${2:500}\" height=\"${3:300}\">\n\tTu navegador no soporta canvas.\n</canvas>$0",
+    "description": "Elemento canvas"
+  },
+  "SVG básico": {
+    "prefix": "svg",
+    "body": [
+      "<svg width=\"${1:200}\" height=\"${2:200}\" xmlns=\"http://www.w3.org/2000/svg\">",
+      "\t<${3|circle,rect,line,ellipse,polygon|} ${4:cx=\"100\" cy=\"100\" r=\"50\"} fill=\"${5:#3498db}\" />",
+      "\t$0",
+      "</svg>"
+    ],
+    "description": "Elemento SVG básico"
+  },
+  "Map (mapa de imagen)": {
+    "prefix": "imgmap",
+    "body": [
+      "<img src=\"${1:imagen.jpg}\" alt=\"${2:mapa}\" usemap=\"#${3:miMapa}\">",
+      "<map name=\"${3:miMapa}\">",
+      "\t<area shape=\"rect\" coords=\"${4:0,0,100,100}\" href=\"${5:#}\" alt=\"${6:Zona 1}\">",
+      "\t<area shape=\"circle\" coords=\"${7:200,200,50}\" href=\"${8:#}\" alt=\"${9:Zona 2}\">",
+      "\t$0",
+      "</map>"
+    ],
+    "description": "Mapa de imagen con áreas clicables"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ACCESIBILIDAD Y ATRIBUTOS ARIA         ██
+  // ══════════════════════════════════════════════
+
+  "Aria label": {
+    "prefix": "arialabel",
+    "body": "aria-label=\"${1:descripción}\"$0",
+    "description": "Atributo aria-label"
+  },
+  "Role": {
+    "prefix": "role",
+    "body": "role=\"${1|navigation,banner,main,complementary,contentinfo,search,form,button,alert|}\"$0",
+    "description": "Atributo role para accesibilidad"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  COMENTARIOS Y OTROS                    ██
+  // ══════════════════════════════════════════════
+
+  "Comentario HTML": {
+    "prefix": "comm",
+    "body": "<!-- ${1:Comentario} -->$0",
+    "description": "Comentario HTML"
+  },
+  "Comentario bloque": {
+    "prefix": "commbl",
+    "body": [
+      "<!-- ========================= -->",
+      "<!-- ${1:SECCIÓN}               -->",
+      "<!-- ========================= -->",
+      "$0"
+    ],
+    "description": "Comentario de bloque/sección"
+  },
+  "Noscript": {
+    "prefix": "noscript",
+    "body": [
+      "<noscript>",
+      "\t<p>${1:Este sitio requiere JavaScript activado para funcionar correctamente.}</p>",
+      "</noscript>$0"
+    ],
+    "description": "Mensaje noscript"
+  },
+  "Google Fonts link": {
+    "prefix": "gfont",
+    "body": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=${1:Inter}:wght@${2:400;700}&display=swap\" rel=\"stylesheet\">$0",
+    "description": "Enlace a Google Fonts"
+  }
+}

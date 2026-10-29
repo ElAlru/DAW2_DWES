@@ -1,0 +1,1597 @@
+{
+  // ══════════════════════════════════════════════
+  // ██  RESET Y BASE                           ██
+  // ══════════════════════════════════════════════
+
+  "CSS Reset básico": {
+    "prefix": "resetcss",
+    "body": [
+      "/* Reset básico */",
+      "* {",
+      "\tmargin: 0;",
+      "\tpadding: 0;",
+      "\tbox-sizing: border-box;",
+      "}",
+      "",
+      "body {",
+      "\tfont-family: ${1:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif};",
+      "\tline-height: 1.6;",
+      "\tcolor: ${2:#333};",
+      "\tbackground-color: ${3:#fff};",
+      "}",
+      "",
+      "img {",
+      "\tmax-width: 100%;",
+      "\theight: auto;",
+      "\tdisplay: block;",
+      "}",
+      "",
+      "a {",
+      "\ttext-decoration: none;",
+      "\tcolor: inherit;",
+      "}",
+      "",
+      "ul, ol {",
+      "\tlist-style: none;",
+      "}",
+      "$0"
+    ],
+    "description": "Reset CSS básico para empezar un proyecto"
+  },
+  "Normalize links": {
+    "prefix": "normlinks",
+    "body": [
+      "a {",
+      "\ttext-decoration: none;",
+      "\tcolor: ${1:#3498db};",
+      "}",
+      "",
+      "a:hover {",
+      "\tcolor: ${2:#2980b9};",
+      "\ttext-decoration: underline;",
+      "}",
+      "",
+      "a:visited {",
+      "\tcolor: ${3:#8e44ad};",
+      "}",
+      "",
+      "a:active {",
+      "\tcolor: ${4:#e74c3c};",
+      "}",
+      "$0"
+    ],
+    "description": "Estilos normalizados para enlaces (link, hover, visited, active)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  VARIABLES CSS (Custom Properties)      ██
+  // ══════════════════════════════════════════════
+
+  "Variables CSS root": {
+    "prefix": "cssvar",
+    "body": [
+      ":root {",
+      "\t/* Colores */",
+      "\t--color-primario: ${1:#3498db};",
+      "\t--color-secundario: ${2:#2ecc71};",
+      "\t--color-acento: ${3:#e74c3c};",
+      "\t--color-texto: ${4:#333};",
+      "\t--color-fondo: ${5:#fff};",
+      "\t--color-gris-claro: ${6:#f5f5f5};",
+      "\t--color-gris-oscuro: ${7:#666};",
+      "",
+      "\t/* Tipografía */",
+      "\t--fuente-principal: ${8:'Segoe UI', sans-serif};",
+      "\t--fuente-titulos: ${9:'Georgia', serif};",
+      "\t--tam-base: ${10:16px};",
+      "",
+      "\t/* Espaciado */",
+      "\t--espaciado-xs: 0.25rem;",
+      "\t--espaciado-sm: 0.5rem;",
+      "\t--espaciado-md: 1rem;",
+      "\t--espaciado-lg: 2rem;",
+      "\t--espaciado-xl: 3rem;",
+      "",
+      "\t/* Bordes */",
+      "\t--radio-borde: ${11:8px};",
+      "\t--sombra: 0 2px 10px rgba(0, 0, 0, 0.1);",
+      "}",
+      "$0"
+    ],
+    "description": "Variables CSS personalizadas con colores, tipografía y espaciado"
+  },
+  "Usar variable CSS": {
+    "prefix": "varr",
+    "body": "var(--${1:nombre-variable})$0",
+    "description": "var(--nombre)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  SELECTORES                              ██
+  // ══════════════════════════════════════════════
+
+  "Selector de clase": {
+    "prefix": "selclass",
+    "body": [
+      ".${1:nombreClase} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector por clase"
+  },
+  "Selector de id": {
+    "prefix": "selid",
+    "body": [
+      "#${1:nombreId} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector por id"
+  },
+  "Selector de elemento": {
+    "prefix": "selel",
+    "body": [
+      "${1:elemento} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector por elemento"
+  },
+  "Selector descendiente": {
+    "prefix": "seldesc",
+    "body": [
+      "${1:padre} ${2:hijo} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector descendiente (padre hijo)"
+  },
+  "Selector hijo directo": {
+    "prefix": "selhijo",
+    "body": [
+      "${1:padre} > ${2:hijo} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector hijo directo (padre > hijo)"
+  },
+  "Selector hermano adyacente": {
+    "prefix": "selady",
+    "body": [
+      "${1:hermano1} + ${2:hermano2} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector hermano adyacente (+)"
+  },
+  "Selector hermano general": {
+    "prefix": "selgen",
+    "body": [
+      "${1:hermano1} ~ ${2:hermano2} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector hermano general (~)"
+  },
+  "Selector de atributo": {
+    "prefix": "selattr",
+    "body": [
+      "${1:elemento}[${2:atributo}${3|=,~=,^=,$=,*=|}\"${4:valor}\"] {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector de atributo"
+  },
+  "Selector múltiple": {
+    "prefix": "selmulti",
+    "body": [
+      "${1:selector1},",
+      "${2:selector2},",
+      "${3:selector3} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector múltiple (agrupado)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  PSEUDO-CLASES                           ██
+  // ══════════════════════════════════════════════
+
+  "Hover": {
+    "prefix": "hover",
+    "body": [
+      "${1:selector}:hover {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :hover"
+  },
+  "Focus": {
+    "prefix": "focus",
+    "body": [
+      "${1:selector}:focus {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :focus"
+  },
+  "Active": {
+    "prefix": "active",
+    "body": [
+      "${1:selector}:active {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :active"
+  },
+  "First-child": {
+    "prefix": "firstchild",
+    "body": [
+      "${1:selector}:first-child {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :first-child"
+  },
+  "Last-child": {
+    "prefix": "lastchild",
+    "body": [
+      "${1:selector}:last-child {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :last-child"
+  },
+  "Nth-child": {
+    "prefix": "nthchild",
+    "body": [
+      "${1:selector}:nth-child(${2:n}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :nth-child(n)"
+  },
+  "Nth-of-type": {
+    "prefix": "nthtype",
+    "body": [
+      "${1:selector}:nth-of-type(${2:n}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :nth-of-type(n)"
+  },
+  "Not": {
+    "prefix": "not",
+    "body": [
+      "${1:selector}:not(${2:.excluido}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :not()"
+  },
+  "Checked": {
+    "prefix": "checked",
+    "body": [
+      "input:checked {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :checked"
+  },
+  "Disabled": {
+    "prefix": "disabled",
+    "body": [
+      "input:disabled {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :disabled"
+  },
+  "Required": {
+    "prefix": "csrequired",
+    "body": [
+      "input:required {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :required"
+  },
+  "Valid/Invalid": {
+    "prefix": "csvalid",
+    "body": [
+      "input:valid {",
+      "\t${1:border-color: green;}",
+      "}",
+      "",
+      "input:invalid {",
+      "\t${2:border-color: red;}",
+      "}",
+      "$0"
+    ],
+    "description": "Pseudo-clases :valid e :invalid para validación"
+  },
+  "Placeholder shown": {
+    "prefix": "csplaceholder",
+    "body": [
+      "input:placeholder-shown {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-clase :placeholder-shown"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  PSEUDO-ELEMENTOS                        ██
+  // ══════════════════════════════════════════════
+
+  "Before": {
+    "prefix": "before",
+    "body": [
+      "${1:selector}::before {",
+      "\tcontent: '${2}';",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-elemento ::before"
+  },
+  "After": {
+    "prefix": "after",
+    "body": [
+      "${1:selector}::after {",
+      "\tcontent: '${2}';",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-elemento ::after"
+  },
+  "First-line": {
+    "prefix": "firstline",
+    "body": [
+      "${1:selector}::first-line {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-elemento ::first-line"
+  },
+  "First-letter": {
+    "prefix": "firstletter",
+    "body": [
+      "${1:selector}::first-letter {",
+      "\tfont-size: ${1:2em};",
+      "\tfont-weight: bold;",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-elemento ::first-letter (letra capital)"
+  },
+  "Selection": {
+    "prefix": "selection",
+    "body": [
+      "${1:selector}::selection {",
+      "\tbackground-color: ${2:#3498db};",
+      "\tcolor: ${3:#fff};",
+      "}",
+      "$0"
+    ],
+    "description": "Pseudo-elemento ::selection"
+  },
+  "Placeholder": {
+    "prefix": "placeholder",
+    "body": [
+      "${1:input}::placeholder {",
+      "\tcolor: ${2:#999};",
+      "\tfont-style: italic;",
+      "\t$0",
+      "}"
+    ],
+    "description": "Pseudo-elemento ::placeholder"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TIPOGRAFÍA                              ██
+  // ══════════════════════════════════════════════
+
+  "Font shorthand": {
+    "prefix": "font",
+    "body": "font: ${1:normal} ${2:400} ${3:16px}/${4:1.5} ${5:'Segoe UI', sans-serif};$0",
+    "description": "Propiedad shorthand font"
+  },
+  "Font-family": {
+    "prefix": "ff",
+    "body": "font-family: ${1|'Segoe UI','Arial','Helvetica','Georgia','Verdana','Courier New','Times New Roman'|}, ${2|sans-serif,serif,monospace|};$0",
+    "description": "Font-family con fallback"
+  },
+  "Font-size": {
+    "prefix": "fs",
+    "body": "font-size: ${1:16px};$0",
+    "description": "Font-size"
+  },
+  "Font-weight": {
+    "prefix": "fw",
+    "body": "font-weight: ${1|normal,bold,lighter,100,200,300,400,500,600,700,800,900|};$0",
+    "description": "Font-weight"
+  },
+  "Text-align": {
+    "prefix": "ta",
+    "body": "text-align: ${1|left,center,right,justify|};$0",
+    "description": "Text-align"
+  },
+  "Text-decoration": {
+    "prefix": "td",
+    "body": "text-decoration: ${1|none,underline,overline,line-through|};$0",
+    "description": "Text-decoration"
+  },
+  "Text-transform": {
+    "prefix": "tt",
+    "body": "text-transform: ${1|none,uppercase,lowercase,capitalize|};$0",
+    "description": "Text-transform"
+  },
+  "Letter-spacing": {
+    "prefix": "ls",
+    "body": "letter-spacing: ${1:1px};$0",
+    "description": "Letter-spacing"
+  },
+  "Word-spacing": {
+    "prefix": "ws",
+    "body": "word-spacing: ${1:2px};$0",
+    "description": "Word-spacing"
+  },
+  "Line-height": {
+    "prefix": "lh",
+    "body": "line-height: ${1:1.6};$0",
+    "description": "Line-height"
+  },
+  "Text-shadow": {
+    "prefix": "tshadow",
+    "body": "text-shadow: ${1:2px} ${2:2px} ${3:4px} ${4:rgba(0, 0, 0, 0.3)};$0",
+    "description": "Text-shadow"
+  },
+  "Text-overflow ellipsis": {
+    "prefix": "tellipsis",
+    "body": [
+      "white-space: nowrap;",
+      "overflow: hidden;",
+      "text-overflow: ellipsis;",
+      "$0"
+    ],
+    "description": "Texto truncado con puntos suspensivos"
+  },
+  "Importar Google Font": {
+    "prefix": "importfont",
+    "body": "@import url('https://fonts.googleapis.com/css2?family=${1:Inter}:wght@${2:400;700}&display=swap');$0",
+    "description": "Importar fuente de Google Fonts"
+  },
+  "@font-face": {
+    "prefix": "fontface",
+    "body": [
+      "@font-face {",
+      "\tfont-family: '${1:MiFuente}';",
+      "\tsrc: url('${2:fuentes/mifuente.woff2}') format('woff2'),",
+      "\t     url('${3:fuentes/mifuente.woff}') format('woff');",
+      "\tfont-weight: ${4:normal};",
+      "\tfont-style: ${5:normal};",
+      "\tfont-display: swap;",
+      "}",
+      "$0"
+    ],
+    "description": "Declaración @font-face"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  COLORES Y FONDOS                        ██
+  // ══════════════════════════════════════════════
+
+  "Color": {
+    "prefix": "co",
+    "body": "color: ${1:#333};$0",
+    "description": "Color de texto"
+  },
+  "Background-color": {
+    "prefix": "bgc",
+    "body": "background-color: ${1:#f5f5f5};$0",
+    "description": "Color de fondo"
+  },
+  "Background shorthand": {
+    "prefix": "bg",
+    "body": "background: ${1:#f5f5f5} ${2:url('${3:imagen.jpg}')} ${4:no-repeat} ${5:center center}${6: / cover};$0",
+    "description": "Propiedad shorthand background"
+  },
+  "Background imagen cover": {
+    "prefix": "bgcover",
+    "body": [
+      "background-image: url('${1:imagen.jpg}');",
+      "background-size: cover;",
+      "background-position: center;",
+      "background-repeat: no-repeat;",
+      "$0"
+    ],
+    "description": "Fondo con imagen a pantalla completa"
+  },
+  "Gradiente lineal": {
+    "prefix": "gradlin",
+    "body": "background: linear-gradient(${1:to right}, ${2:#3498db}, ${3:#2ecc71});$0",
+    "description": "Gradiente lineal"
+  },
+  "Gradiente radial": {
+    "prefix": "gradrad",
+    "body": "background: radial-gradient(${1:circle}, ${2:#3498db}, ${3:#2c3e50});$0",
+    "description": "Gradiente radial"
+  },
+  "Opacity": {
+    "prefix": "op",
+    "body": "opacity: ${1:0.8};$0",
+    "description": "Opacidad"
+  },
+  "RGBA color": {
+    "prefix": "rgba",
+    "body": "rgba(${1:0}, ${2:0}, ${3:0}, ${4:0.5})$0",
+    "description": "Color RGBA"
+  },
+  "HSL color": {
+    "prefix": "hsl",
+    "body": "hsl(${1:210}, ${2:50%}, ${3:50%})$0",
+    "description": "Color HSL"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  BOX MODEL                               ██
+  // ══════════════════════════════════════════════
+
+  "Margin": {
+    "prefix": "mg",
+    "body": "margin: ${1:0};$0",
+    "description": "Margin"
+  },
+  "Margin auto (centrar)": {
+    "prefix": "mgauto",
+    "body": "margin: 0 auto;$0",
+    "description": "Centrar con margin auto"
+  },
+  "Padding": {
+    "prefix": "pd",
+    "body": "padding: ${1:1rem};$0",
+    "description": "Padding"
+  },
+  "Border": {
+    "prefix": "bd",
+    "body": "border: ${1:1px} ${2|solid,dashed,dotted,double,groove,ridge,inset,outset|} ${3:#ccc};$0",
+    "description": "Border shorthand"
+  },
+  "Border-radius": {
+    "prefix": "br",
+    "body": "border-radius: ${1:8px};$0",
+    "description": "Border-radius"
+  },
+  "Border-radius circular": {
+    "prefix": "brcircle",
+    "body": "border-radius: 50%;$0",
+    "description": "Border-radius 50% (circular)"
+  },
+  "Box-shadow": {
+    "prefix": "bshadow",
+    "body": "box-shadow: ${1:0} ${2:2px} ${3:10px} ${4:rgba(0, 0, 0, 0.1)};$0",
+    "description": "Box-shadow"
+  },
+  "Box-shadow múltiple": {
+    "prefix": "bshadowm",
+    "body": "box-shadow: ${1:0 2px 5px rgba(0,0,0,0.1)}, ${2:0 5px 15px rgba(0,0,0,0.05)};$0",
+    "description": "Box-shadow con múltiples capas"
+  },
+  "Box-sizing": {
+    "prefix": "bx",
+    "body": "box-sizing: border-box;$0",
+    "description": "Box-sizing border-box"
+  },
+  "Width y Height": {
+    "prefix": "wh",
+    "body": [
+      "width: ${1:100%};",
+      "height: ${2:auto};",
+      "$0"
+    ],
+    "description": "Width y height"
+  },
+  "Max-width": {
+    "prefix": "mw",
+    "body": "max-width: ${1:1200px};$0",
+    "description": "Max-width"
+  },
+  "Min-height": {
+    "prefix": "mh",
+    "body": "min-height: ${1:100vh};$0",
+    "description": "Min-height"
+  },
+  "Overflow": {
+    "prefix": "ov",
+    "body": "overflow: ${1|visible,hidden,scroll,auto|};$0",
+    "description": "Overflow"
+  },
+  "Outline": {
+    "prefix": "outl",
+    "body": "outline: ${1:2px} ${2|solid,dashed,dotted|} ${3:#3498db};$0",
+    "description": "Outline"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  DISPLAY Y POSICIONAMIENTO               ██
+  // ══════════════════════════════════════════════
+
+  "Display": {
+    "prefix": "dp",
+    "body": "display: ${1|block,inline,inline-block,flex,grid,none,table,inline-flex,inline-grid|};$0",
+    "description": "Display"
+  },
+  "Position": {
+    "prefix": "pos",
+    "body": [
+      "position: ${1|static,relative,absolute,fixed,sticky|};",
+      "${2:top: ${3:0};}",
+      "${4:left: ${5:0};}",
+      "$0"
+    ],
+    "description": "Position con top/left"
+  },
+  "Position absolute centrado": {
+    "prefix": "poscenter",
+    "body": [
+      "position: absolute;",
+      "top: 50%;",
+      "left: 50%;",
+      "transform: translate(-50%, -50%);",
+      "$0"
+    ],
+    "description": "Centrado absoluto con transform"
+  },
+  "Position fixed": {
+    "prefix": "posfix",
+    "body": [
+      "position: fixed;",
+      "top: ${1:0};",
+      "left: ${2:0};",
+      "width: ${3:100%};",
+      "z-index: ${4:1000};",
+      "$0"
+    ],
+    "description": "Posición fija (barra fija por ejemplo)"
+  },
+  "Position sticky": {
+    "prefix": "possticky",
+    "body": [
+      "position: sticky;",
+      "top: ${1:0};",
+      "z-index: ${2:100};",
+      "$0"
+    ],
+    "description": "Posición sticky"
+  },
+  "Z-index": {
+    "prefix": "zi",
+    "body": "z-index: ${1:10};$0",
+    "description": "Z-index"
+  },
+  "Float": {
+    "prefix": "fl",
+    "body": "float: ${1|left,right,none|};$0",
+    "description": "Float"
+  },
+  "Clear": {
+    "prefix": "cl",
+    "body": "clear: ${1|both,left,right,none|};$0",
+    "description": "Clear"
+  },
+  "Clearfix": {
+    "prefix": "clearfix",
+    "body": [
+      "${1:.contenedor}::after {",
+      "\tcontent: '';",
+      "\tdisplay: table;",
+      "\tclear: both;",
+      "}",
+      "$0"
+    ],
+    "description": "Clearfix con pseudo-elemento"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  FLEXBOX                                 ██
+  // ══════════════════════════════════════════════
+
+  "Flex container": {
+    "prefix": "flex",
+    "body": [
+      "display: flex;",
+      "justify-content: ${1|flex-start,flex-end,center,space-between,space-around,space-evenly|};",
+      "align-items: ${2|stretch,flex-start,flex-end,center,baseline|};",
+      "$0"
+    ],
+    "description": "Contenedor flex con justify y align"
+  },
+  "Flex centrado perfecto": {
+    "prefix": "flexcenter",
+    "body": [
+      "display: flex;",
+      "justify-content: center;",
+      "align-items: center;",
+      "$0"
+    ],
+    "description": "Flexbox centrado perfecto"
+  },
+  "Flex columna": {
+    "prefix": "flexcol",
+    "body": [
+      "display: flex;",
+      "flex-direction: column;",
+      "$0"
+    ],
+    "description": "Flexbox en columna"
+  },
+  "Flex wrap": {
+    "prefix": "flexwrap",
+    "body": [
+      "display: flex;",
+      "flex-wrap: wrap;",
+      "gap: ${1:1rem};",
+      "$0"
+    ],
+    "description": "Flexbox con wrap y gap"
+  },
+  "Flex space-between": {
+    "prefix": "flexsb",
+    "body": [
+      "display: flex;",
+      "justify-content: space-between;",
+      "align-items: center;",
+      "$0"
+    ],
+    "description": "Flexbox space-between (útil para navbars)"
+  },
+  "Flex item": {
+    "prefix": "flexitem",
+    "body": "flex: ${1:1} ${2:1} ${3:auto};$0",
+    "description": "Propiedad flex shorthand (grow shrink basis)"
+  },
+  "Gap": {
+    "prefix": "gap",
+    "body": "gap: ${1:1rem};$0",
+    "description": "Gap (espacio entre items flex/grid)"
+  },
+  "Flex order": {
+    "prefix": "flexorder",
+    "body": "order: ${1:0};$0",
+    "description": "Order de un flex item"
+  },
+  "Align-self": {
+    "prefix": "alignself",
+    "body": "align-self: ${1|auto,flex-start,flex-end,center,baseline,stretch|};$0",
+    "description": "Align-self para un flex item"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CSS GRID                                ██
+  // ══════════════════════════════════════════════
+
+  "Grid container": {
+    "prefix": "grid",
+    "body": [
+      "display: grid;",
+      "grid-template-columns: ${1:repeat(3, 1fr)};",
+      "grid-template-rows: ${2:auto};",
+      "gap: ${3:1rem};",
+      "$0"
+    ],
+    "description": "Contenedor grid básico"
+  },
+  "Grid 2 columnas": {
+    "prefix": "grid2",
+    "body": [
+      "display: grid;",
+      "grid-template-columns: 1fr 1fr;",
+      "gap: ${1:1rem};",
+      "$0"
+    ],
+    "description": "Grid de 2 columnas iguales"
+  },
+  "Grid 3 columnas": {
+    "prefix": "grid3",
+    "body": [
+      "display: grid;",
+      "grid-template-columns: 1fr 1fr 1fr;",
+      "gap: ${1:1rem};",
+      "$0"
+    ],
+    "description": "Grid de 3 columnas iguales"
+  },
+  "Grid responsive auto-fit": {
+    "prefix": "gridauto",
+    "body": [
+      "display: grid;",
+      "grid-template-columns: repeat(auto-fit, minmax(${1:250px}, 1fr));",
+      "gap: ${2:1rem};",
+      "$0"
+    ],
+    "description": "Grid responsive con auto-fit y minmax"
+  },
+  "Grid responsive auto-fill": {
+    "prefix": "gridfill",
+    "body": [
+      "display: grid;",
+      "grid-template-columns: repeat(auto-fill, minmax(${1:200px}, 1fr));",
+      "gap: ${2:1rem};",
+      "$0"
+    ],
+    "description": "Grid responsive con auto-fill"
+  },
+  "Grid layout con areas": {
+    "prefix": "gridareas",
+    "body": [
+      "display: grid;",
+      "grid-template-areas:",
+      "\t'${1:header} ${1:header} ${1:header}'",
+      "\t'${2:sidebar} ${3:main} ${3:main}'",
+      "\t'${4:footer} ${4:footer} ${4:footer}';",
+      "grid-template-columns: ${5:250px} 1fr 1fr;",
+      "grid-template-rows: ${6:auto 1fr auto};",
+      "gap: ${7:1rem};",
+      "min-height: 100vh;",
+      "$0"
+    ],
+    "description": "Grid layout completo con áreas nombradas"
+  },
+  "Grid-area": {
+    "prefix": "gridarea",
+    "body": "grid-area: ${1:nombre};$0",
+    "description": "Asignar grid-area a un elemento"
+  },
+  "Grid item posición": {
+    "prefix": "gridpos",
+    "body": [
+      "grid-column: ${1:1} / ${2:3};",
+      "grid-row: ${3:1} / ${4:2};",
+      "$0"
+    ],
+    "description": "Posicionar un item en el grid"
+  },
+  "Grid column span": {
+    "prefix": "gridspan",
+    "body": "grid-column: span ${1:2};$0",
+    "description": "Grid column span"
+  },
+  "Place items (centrar en grid)": {
+    "prefix": "placeitems",
+    "body": "place-items: center;$0",
+    "description": "Centrar items en grid"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TRANSICIONES                            ██
+  // ══════════════════════════════════════════════
+
+  "Transition": {
+    "prefix": "trans",
+    "body": "transition: ${1:all} ${2:0.3s} ${3|ease,ease-in,ease-out,ease-in-out,linear,cubic-bezier()|};$0",
+    "description": "Transition shorthand"
+  },
+  "Transition múltiple": {
+    "prefix": "transmulti",
+    "body": "transition: ${1:background-color} ${2:0.3s} ease, ${3:transform} ${4:0.3s} ease, ${5:box-shadow} ${6:0.3s} ease;$0",
+    "description": "Transition con múltiples propiedades"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  TRANSFORMACIONES                        ██
+  // ══════════════════════════════════════════════
+
+  "Transform translate": {
+    "prefix": "translate",
+    "body": "transform: translate(${1:0}, ${2:0});$0",
+    "description": "Transform translate"
+  },
+  "Transform rotate": {
+    "prefix": "rotate",
+    "body": "transform: rotate(${1:45deg});$0",
+    "description": "Transform rotate"
+  },
+  "Transform scale": {
+    "prefix": "scale",
+    "body": "transform: scale(${1:1.1});$0",
+    "description": "Transform scale"
+  },
+  "Transform skew": {
+    "prefix": "skew",
+    "body": "transform: skew(${1:10deg}, ${2:5deg});$0",
+    "description": "Transform skew"
+  },
+  "Transform múltiple": {
+    "prefix": "transformmulti",
+    "body": "transform: ${1:translateY(-5px)} ${2:scale(1.02)} ${3:rotate(0deg)};$0",
+    "description": "Transform con múltiples funciones"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  ANIMACIONES                             ██
+  // ══════════════════════════════════════════════
+
+  "Keyframes": {
+    "prefix": "keyframes",
+    "body": [
+      "@keyframes ${1:nombreAnimacion} {",
+      "\t0% {",
+      "\t\t$2",
+      "\t}",
+      "\t100% {",
+      "\t\t$3",
+      "\t}",
+      "}",
+      "$0"
+    ],
+    "description": "Definir @keyframes"
+  },
+  "Keyframes con pasos": {
+    "prefix": "keyframessteps",
+    "body": [
+      "@keyframes ${1:nombreAnimacion} {",
+      "\t0% {",
+      "\t\t$2",
+      "\t}",
+      "\t25% {",
+      "\t\t$3",
+      "\t}",
+      "\t50% {",
+      "\t\t$4",
+      "\t}",
+      "\t75% {",
+      "\t\t$5",
+      "\t}",
+      "\t100% {",
+      "\t\t$6",
+      "\t}",
+      "}",
+      "$0"
+    ],
+    "description": "Keyframes con múltiples pasos"
+  },
+  "Animation shorthand": {
+    "prefix": "anim",
+    "body": "animation: ${1:nombre} ${2:1s} ${3|ease,ease-in,ease-out,ease-in-out,linear|} ${4:0s} ${5|1,infinite|} ${6|normal,reverse,alternate,alternate-reverse|};$0",
+    "description": "Animation shorthand completo"
+  },
+  "Animación fade in": {
+    "prefix": "animfade",
+    "body": [
+      "@keyframes fadeIn {",
+      "\tfrom { opacity: 0; }",
+      "\tto { opacity: 1; }",
+      "}",
+      "",
+      "${1:.elemento} {",
+      "\tanimation: fadeIn ${2:0.5s} ease;",
+      "}",
+      "$0"
+    ],
+    "description": "Animación fade in completa"
+  },
+  "Animación slide in": {
+    "prefix": "animslide",
+    "body": [
+      "@keyframes slideIn {",
+      "\tfrom {",
+      "\t\ttransform: translateY(${1:30px});",
+      "\t\topacity: 0;",
+      "\t}",
+      "\tto {",
+      "\t\ttransform: translateY(0);",
+      "\t\topacity: 1;",
+      "\t}",
+      "}",
+      "",
+      "${2:.elemento} {",
+      "\tanimation: slideIn ${3:0.5s} ease;",
+      "}",
+      "$0"
+    ],
+    "description": "Animación slide in desde abajo"
+  },
+  "Animación pulso": {
+    "prefix": "animpulse",
+    "body": [
+      "@keyframes pulse {",
+      "\t0% { transform: scale(1); }",
+      "\t50% { transform: scale(${1:1.05}); }",
+      "\t100% { transform: scale(1); }",
+      "}",
+      "",
+      "${2:.elemento} {",
+      "\tanimation: pulse ${3:2s} ease infinite;",
+      "}",
+      "$0"
+    ],
+    "description": "Animación de pulso"
+  },
+  "Animación rotar": {
+    "prefix": "animspin",
+    "body": [
+      "@keyframes spin {",
+      "\tfrom { transform: rotate(0deg); }",
+      "\tto { transform: rotate(360deg); }",
+      "}",
+      "",
+      "${1:.elemento} {",
+      "\tanimation: spin ${2:1s} linear infinite;",
+      "}",
+      "$0"
+    ],
+    "description": "Animación de rotación continua"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  MEDIA QUERIES (RESPONSIVE)              ██
+  // ══════════════════════════════════════════════
+
+  "Media query móvil": {
+    "prefix": "mqmovil",
+    "body": [
+      "@media (max-width: ${1:480px}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Media query para móvil (max-width: 480px)"
+  },
+  "Media query tablet": {
+    "prefix": "mqtablet",
+    "body": [
+      "@media (max-width: ${1:768px}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Media query para tablet (max-width: 768px)"
+  },
+  "Media query desktop": {
+    "prefix": "mqdesktop",
+    "body": [
+      "@media (min-width: ${1:1024px}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Media query para desktop (min-width: 1024px)"
+  },
+  "Media query rango": {
+    "prefix": "mqrango",
+    "body": [
+      "@media (min-width: ${1:768px}) and (max-width: ${2:1024px}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Media query con rango min y max"
+  },
+  "Media query print": {
+    "prefix": "mqprint",
+    "body": [
+      "@media print {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Media query para impresión"
+  },
+  "Media query dark mode": {
+    "prefix": "mqdark",
+    "body": [
+      "@media (prefers-color-scheme: dark) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Media query para modo oscuro del sistema"
+  },
+  "Responsive breakpoints completo": {
+    "prefix": "mqall",
+    "body": [
+      "/* Móvil (por defecto) */",
+      "$1",
+      "",
+      "/* Tablet */",
+      "@media (min-width: 768px) {",
+      "\t$2",
+      "}",
+      "",
+      "/* Desktop */",
+      "@media (min-width: 1024px) {",
+      "\t$3",
+      "}",
+      "",
+      "/* Desktop grande */",
+      "@media (min-width: 1200px) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Todos los breakpoints responsive (mobile-first)"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  COMPONENTES COMUNES                     ██
+  // ══════════════════════════════════════════════
+
+  "Tarjeta (card)": {
+    "prefix": "card",
+    "body": [
+      ".${1:card} {",
+      "\tbackground-color: #fff;",
+      "\tborder-radius: ${2:8px};",
+      "\tbox-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);",
+      "\tpadding: ${3:1.5rem};",
+      "\ttransition: transform 0.3s ease, box-shadow 0.3s ease;",
+      "}",
+      "",
+      ".${1:card}:hover {",
+      "\ttransform: translateY(-5px);",
+      "\tbox-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);",
+      "}",
+      "$0"
+    ],
+    "description": "Estilo de tarjeta con hover"
+  },
+  "Botón estilizado": {
+    "prefix": "btnstyle",
+    "body": [
+      ".${1:btn} {",
+      "\tdisplay: inline-block;",
+      "\tpadding: ${2:10px 20px};",
+      "\tbackground-color: ${3:#3498db};",
+      "\tcolor: #fff;",
+      "\tborder: none;",
+      "\tborder-radius: ${4:5px};",
+      "\tcursor: pointer;",
+      "\tfont-size: ${5:1rem};",
+      "\ttransition: background-color 0.3s ease, transform 0.2s ease;",
+      "}",
+      "",
+      ".${1:btn}:hover {",
+      "\tbackground-color: ${6:#2980b9};",
+      "\ttransform: translateY(-2px);",
+      "}",
+      "",
+      ".${1:btn}:active {",
+      "\ttransform: translateY(0);",
+      "}",
+      "$0"
+    ],
+    "description": "Botón estilizado con hover y active"
+  },
+  "Navbar horizontal": {
+    "prefix": "navbar",
+    "body": [
+      ".${1:navbar} {",
+      "\tdisplay: flex;",
+      "\tjustify-content: space-between;",
+      "\talign-items: center;",
+      "\tpadding: ${2:1rem 2rem};",
+      "\tbackground-color: ${3:#2c3e50};",
+      "\tcolor: #fff;",
+      "}",
+      "",
+      ".${1:navbar} ul {",
+      "\tdisplay: flex;",
+      "\tlist-style: none;",
+      "\tgap: ${4:1.5rem};",
+      "}",
+      "",
+      ".${1:navbar} a {",
+      "\tcolor: #fff;",
+      "\ttext-decoration: none;",
+      "\ttransition: color 0.3s ease;",
+      "}",
+      "",
+      ".${1:navbar} a:hover {",
+      "\tcolor: ${5:#3498db};",
+      "}",
+      "$0"
+    ],
+    "description": "Navbar horizontal con flexbox"
+  },
+  "Container centrado": {
+    "prefix": "container",
+    "body": [
+      ".${1:container} {",
+      "\tmax-width: ${2:1200px};",
+      "\tmargin: 0 auto;",
+      "\tpadding: 0 ${3:1rem};",
+      "}",
+      "$0"
+    ],
+    "description": "Contenedor centrado con max-width"
+  },
+  "Formulario estilizado": {
+    "prefix": "formstyle",
+    "body": [
+      "form {",
+      "\tmax-width: ${1:500px};",
+      "\tmargin: 0 auto;",
+      "\tpadding: ${2:2rem};",
+      "}",
+      "",
+      "label {",
+      "\tdisplay: block;",
+      "\tmargin-bottom: 0.5rem;",
+      "\tfont-weight: bold;",
+      "\tcolor: ${3:#333};",
+      "}",
+      "",
+      "input[type=\"text\"],",
+      "input[type=\"email\"],",
+      "input[type=\"password\"],",
+      "input[type=\"tel\"],",
+      "input[type=\"number\"],",
+      "textarea,",
+      "select {",
+      "\twidth: 100%;",
+      "\tpadding: ${4:0.75rem};",
+      "\tmargin-bottom: 1rem;",
+      "\tborder: 1px solid ${5:#ccc};",
+      "\tborder-radius: ${6:5px};",
+      "\tfont-size: 1rem;",
+      "\ttransition: border-color 0.3s ease;",
+      "}",
+      "",
+      "input:focus,",
+      "textarea:focus,",
+      "select:focus {",
+      "\toutline: none;",
+      "\tborder-color: ${7:#3498db};",
+      "\tbox-shadow: 0 0 5px rgba(52, 152, 219, 0.3);",
+      "}",
+      "",
+      "input[type=\"submit\"],",
+      "button[type=\"submit\"] {",
+      "\tbackground-color: ${8:#3498db};",
+      "\tcolor: #fff;",
+      "\tpadding: 0.75rem 2rem;",
+      "\tborder: none;",
+      "\tborder-radius: 5px;",
+      "\tcursor: pointer;",
+      "\tfont-size: 1rem;",
+      "\ttransition: background-color 0.3s ease;",
+      "}",
+      "",
+      "input[type=\"submit\"]:hover,",
+      "button[type=\"submit\"]:hover {",
+      "\tbackground-color: ${9:#2980b9};",
+      "}",
+      "$0"
+    ],
+    "description": "Estilos completos para formulario"
+  },
+  "Tabla estilizada": {
+    "prefix": "tablestyle",
+    "body": [
+      "table {",
+      "\twidth: 100%;",
+      "\tborder-collapse: collapse;",
+      "\tmargin: 1rem 0;",
+      "}",
+      "",
+      "th, td {",
+      "\tpadding: ${1:0.75rem 1rem};",
+      "\ttext-align: left;",
+      "\tborder-bottom: 1px solid ${2:#ddd};",
+      "}",
+      "",
+      "th {",
+      "\tbackground-color: ${3:#2c3e50};",
+      "\tcolor: #fff;",
+      "\tfont-weight: bold;",
+      "}",
+      "",
+      "tr:nth-child(even) {",
+      "\tbackground-color: ${4:#f5f5f5};",
+      "}",
+      "",
+      "tr:hover {",
+      "\tbackground-color: ${5:#e8f4fd};",
+      "}",
+      "$0"
+    ],
+    "description": "Estilos completos para tabla zebra con hover"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  UTILIDADES Y MISCELÁNEO                 ██
+  // ══════════════════════════════════════════════
+
+  "Ocultar elemento": {
+    "prefix": "hide",
+    "body": [
+      "display: none;",
+      "$0"
+    ],
+    "description": "Ocultar elemento con display none"
+  },
+  "Visualmente oculto (accesible)": {
+    "prefix": "srhide",
+    "body": [
+      "position: absolute;",
+      "width: 1px;",
+      "height: 1px;",
+      "padding: 0;",
+      "margin: -1px;",
+      "overflow: hidden;",
+      "clip: rect(0, 0, 0, 0);",
+      "white-space: nowrap;",
+      "border: 0;",
+      "$0"
+    ],
+    "description": "Ocultar visualmente pero accesible para lectores de pantalla"
+  },
+  "Cursor pointer": {
+    "prefix": "cursor",
+    "body": "cursor: ${1|pointer,default,not-allowed,grab,grabbing,text,crosshair,move,wait|};$0",
+    "description": "Cursor"
+  },
+  "Filter": {
+    "prefix": "filter",
+    "body": "filter: ${1|blur(5px),brightness(1.2),contrast(1.5),grayscale(100%),sepia(100%),saturate(2),hue-rotate(90deg),drop-shadow(2px 2px 4px rgba(0\\,0\\,0\\,0.3))|};$0",
+    "description": "CSS filter"
+  },
+  "Backdrop filter (glassmorphism)": {
+    "prefix": "backdrop",
+    "body": [
+      "backdrop-filter: blur(${1:10px});",
+      "-webkit-backdrop-filter: blur(${1:10px});",
+      "background-color: rgba(255, 255, 255, ${2:0.2});",
+      "$0"
+    ],
+    "description": "Backdrop filter para efecto glassmorphism"
+  },
+  "Scroll suave": {
+    "prefix": "smoothscroll",
+    "body": [
+      "html {",
+      "\tscroll-behavior: smooth;",
+      "}",
+      "$0"
+    ],
+    "description": "Scroll suave global"
+  },
+  "Scrollbar personalizada": {
+    "prefix": "scrollbar",
+    "body": [
+      "${1:*}::-webkit-scrollbar {",
+      "\twidth: ${2:8px};",
+      "}",
+      "",
+      "${1:*}::-webkit-scrollbar-track {",
+      "\tbackground: ${3:#f1f1f1};",
+      "}",
+      "",
+      "${1:*}::-webkit-scrollbar-thumb {",
+      "\tbackground: ${4:#888};",
+      "\tborder-radius: 4px;",
+      "}",
+      "",
+      "${1:*}::-webkit-scrollbar-thumb:hover {",
+      "\tbackground: ${5:#555};",
+      "}",
+      "$0"
+    ],
+    "description": "Scrollbar personalizada"
+  },
+  "User-select": {
+    "prefix": "userselect",
+    "body": [
+      "user-select: ${1|none,text,all,auto|};",
+      "-webkit-user-select: ${1:none};",
+      "$0"
+    ],
+    "description": "User-select"
+  },
+  "Aspect-ratio": {
+    "prefix": "aspect",
+    "body": "aspect-ratio: ${1:16} / ${2:9};$0",
+    "description": "Aspect-ratio"
+  },
+  "Object-fit": {
+    "prefix": "objfit",
+    "body": "object-fit: ${1|cover,contain,fill,none,scale-down|};$0",
+    "description": "Object-fit para imágenes/videos"
+  },
+  "Clip-path": {
+    "prefix": "clippath",
+    "body": "clip-path: ${1|circle(50%),ellipse(50% 40%),polygon(50% 0%\\, 100% 100%\\, 0% 100%),inset(10% 20% 30% 40%)|};$0",
+    "description": "Clip-path para recortar formas"
+  },
+  "Comentario CSS": {
+    "prefix": "cscomm",
+    "body": "/* ${1:Comentario} */$0",
+    "description": "Comentario CSS"
+  },
+  "Comentario sección CSS": {
+    "prefix": "cssection",
+    "body": [
+      "/* =============================== */",
+      "/* ${1:NOMBRE DE LA SECCIÓN}       */",
+      "/* =============================== */",
+      "$0"
+    ],
+    "description": "Comentario de sección CSS"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  CSS SPRITES                             ██
+  // ══════════════════════════════════════════════
+
+  "Sprite CSS": {
+    "prefix": "sprite",
+    "body": [
+      ".${1:sprite} {",
+      "\tbackground-image: url('${2:sprites.png}');",
+      "\tbackground-repeat: no-repeat;",
+      "\twidth: ${3:32px};",
+      "\theight: ${4:32px};",
+      "}",
+      "",
+      ".${1:sprite}-${5:icono1} {",
+      "\tbackground-position: ${6:0 0};",
+      "}",
+      "",
+      ".${1:sprite}-${7:icono2} {",
+      "\tbackground-position: ${8:-32px 0};",
+      "}",
+      "$0"
+    ],
+    "description": "CSS Sprite con posiciones de fondo"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  COLUMNAS CSS                            ██
+  // ══════════════════════════════════════════════
+
+  "Multicolumna": {
+    "prefix": "columns",
+    "body": [
+      "column-count: ${1:3};",
+      "column-gap: ${2:2rem};",
+      "column-rule: ${3:1px solid #ddd};",
+      "$0"
+    ],
+    "description": "Layout multicolumna CSS"
+  },
+
+  // ══════════════════════════════════════════════
+  // ██  SELECTORES Y PROPIEDADES RÁPIDAS         ██
+  // ══════════════════════════════════════════════
+
+  "ID con propiedades de caja": {
+    "prefix": ["idbox", "cssid", "selidprop", "idfull"],
+    "body": [
+      "#${1:nombreId} {",
+      "\tposition: ${2|absolute,relative,fixed,static|};",
+      "\twidth: ${3:200px};",
+      "\theight: ${4:188px};",
+      "\tbackground: url(${5:112116-arrows-kit.png});",
+      "\tbackground-position: ${6:0px 0px};",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector ID con dimensiones y fondo listos para rellenar"
+  },
+
+  "ID Sprite completo con Hover": {
+    "prefix": ["idsprite", "spritehover", "spriteid"],
+    "body": [
+      "#${1:nombreId} {",
+      "\tposition: ${2|absolute,relative|};",
+      "\twidth: ${3:200px};",
+      "\theight: ${4:188px};",
+      "\tbackground: url('${5:112116-arrows-kit.png}');",
+      "\tbackground-position: ${6:0px 0px};",
+      "\tcursor: pointer;",
+      "}",
+      "",
+      "#${1:nombreId}:hover {",
+      "\tbackground-position: ${7:-200px 0px};",
+      "}",
+      "$0"
+    ],
+    "description": "Selector ID para sprite con su estado :hover automático"
+  },
+
+  "Selector múltiple / agrupado con propiedades": {
+    "prefix": ["selgroup", "selcombo", "cssgroup"],
+    "body": [
+      "${1:.aquello}, ${2:h1}, ${3:.lotro} {",
+      "\t${4:color}: ${5:#333};",
+      "\t$0",
+      "}"
+    ],
+    "description": "Selector agrupado (.clase, h1, #id) con propiedades"
+  },
+
+  "Envolver selección en regla CSS": {
+    "prefix": ["selwrap", "wrapcss", "regla"],
+    "body": [
+      "${TM_SELECTED_TEXT:${1:selector}} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Envuelve el texto seleccionado (ej: .uno, h1, #dos) en una regla CSS con llaves"
+  },
+
+  "Hover para selector existente": {
+    "prefix": ["selhover", "hovercss", "hov"],
+    "body": [
+      "${1:selector}:hover {",
+      "\tbackground-position: ${2:-200px 0px};",
+      "\t$0",
+      "}"
+    ],
+    "description": "Crea la regla :hover para cualquier selector o ID"
+  },
+
+  "Posicionamiento absoluto rápido": {
+    "prefix": ["posabs", "posabsolute"],
+    "body": [
+      "position: absolute;",
+      "top: ${1:0px};",
+      "${2|left,right|}: ${3:0px};",
+      "width: ${4:200px};",
+      "height: ${5:188px};",
+      "$0"
+    ],
+    "description": "Bloque de propiedades position absolute con top/left/right y tamaño"
+  },
+
+  "Posicionamiento relativo rápido": {
+    "prefix": ["posrel", "posrelative"],
+    "body": [
+      "position: relative;",
+      "width: ${1:200px};",
+      "height: ${2:188px};",
+      "$0"
+    ],
+    "description": "Bloque de propiedades position relative con tamaño"
+  },
+
+  "Ancho y Alto juntos (Width + Height)": {
+    "prefix": ["size", "wh", "tamano"],
+    "body": [
+      "width: ${1:200px};",
+      "height: ${2:188px};",
+      "$0"
+    ],
+    "description": "Inserta width y height a la vez"
+  },
+
+  "Background Position rápido": {
+    "prefix": ["bgpos", "bgp"],
+    "body": "background-position: ${1:-200px} ${2:0px};$0",
+    "description": "background-position: X Y;"
+  },
+
+  "Centrado absoluto con transform": {
+    "prefix": ["centerabs", "centradoabs"],
+    "body": [
+      "position: absolute;",
+      "top: 50%;",
+      "left: 50%;",
+      "transform: translate(-50%, -50%);",
+      "$0"
+    ],
+    "description": "Centrado perfecto horizontal y vertical mediante transform translate"
+  },
+
+  "Flexbox centrado total": {
+    "prefix": ["flexcenter", "dcenter"],
+    "body": [
+      "display: flex;",
+      "justify-content: center;",
+      "align-items: center;",
+      "$0"
+    ],
+    "description": "display flex con justify-content y align-items al centro"
+  },
+
+  "Transición suave": {
+    "prefix": ["trans", "transicion"],
+    "body": "transition: ${1:all} ${2:0.3s} ${3:ease};$0",
+    "description": "transition suave para hovers y animaciones"
+  }
+}
+
