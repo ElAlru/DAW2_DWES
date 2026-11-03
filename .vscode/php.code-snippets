@@ -838,6 +838,31 @@
     ],
     "description": "Endpoint PHP para AJAX con FormData (POST normal)"
   },
+    "SCRIPT ajax": {
+	"prefix": "ajax",
+	"body": [
+		"<script>",
+		"var xmlhttp;",
+		"",
+		"function accionAJAX() {",
+		"\tdocument.getElementById(\"idDiv\").innerHTML = xmlhttp.responseText;",
+		"}",
+		"",
+		"function ajax() {",
+		"\txmlhttp = new XMLHttpRequest();",
+		"\txmlhttp.onreadystatechange = function() {",
+		"\t\tif (xmlhttp.readyState == 4 && xmlhttp.status == 200) {",
+		"\t\t\taccionAJAX();",
+		"\t\t}",
+		"\t};",
+		"\txmlhttp.open(\"GET\", \"${1:URL}\", true);",
+		"\txmlhttp.send();",
+		"}",
+		"</script>"
+	],
+	"description": "Javascript para llamada AJAX genérica"
+},
+
 
   // ══════════════════════════════════════════════
   // ██  BASE DE DATOS (MySQL)                   ██
